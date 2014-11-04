@@ -1,0 +1,424 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: magic-post-listing\n"
+"POT-Creation-Date: 2014-11-01 20:33+0330\n"
+"PO-Revision-Date: 2014-11-01 21:16+0330\n"
+"Last-Translator: Howard <howard@realtyna.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: I:\\wbl\\xampp\\htdocs\\mpl\\wp-content\\plugins\\magic-"
+"post-listing\n"
+"X-Poedit-SearchPath-0: I:\\wbl\\xampp\\htdocs\\mpl\\wp-content\\plugins"
+"\\magic-post-listing\n"
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/factory.php:27
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/main.php:20
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/main.php:25
+msgid "Magic Post Listing"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:64
+msgid "This feature is included in Magic Post Listing (MPL) PRO."
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:65
+#, php-format
+msgid "By upgrading to %s you can use more layouts. Click %s to see demos."
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:65
+msgid "MPL PRO"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:65
+msgid "here"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/widgets.php:61
+msgid "Root"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/widgets.php:76
+msgid "-----"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:15
+msgid "Basic Options"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:18
+msgid "Widget Title"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:21
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:138
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:154
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:167
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:191
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:215
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:234
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:254
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:277
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:301
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:31
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:38
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:45
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:53
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:60
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:71
+msgid "Yes"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:22
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:139
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:155
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:168
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:192
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:216
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:235
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:255
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:278
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:302
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:32
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:39
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:46
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:52
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:59
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:70
+msgid "No"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:27
+msgid "Widget title"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:31
+msgid "URL"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:37
+msgid "Additional CSS classes"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:41
+msgid "Main Color"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:45
+msgid "Links Target"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:47
+msgid "Current Window"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:48
+msgid "New Window"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:52
+msgid "Filter Options"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:55
+msgid "Author"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:69
+msgid "Post Type"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:72
+msgid "Post"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:73
+msgid "Page"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:81
+msgid "Parent Page"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:85
+msgid "Include page IDs"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:89
+msgid "Exclude page IDs"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:95
+msgid "Category"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:99
+msgid "Post tags"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:103
+msgid "Include post IDs"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:107
+msgid "Exclude post IDs"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:113
+msgid "Order by"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:115
+msgid "Post date"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:116
+msgid "Post modified date"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:117
+msgid "Comment count"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:121
+msgid "Order"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:123
+msgid "Ascending"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:124
+msgid "Descending"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:128
+msgid "Max number of posts/pages"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:132
+msgid "Thumbnail Options"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:135
+msgid "Thumbnails"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:144
+msgid "Width (px)"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:148
+msgid "Height (px)"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:152
+msgid "Link thumbnail to post"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:161
+msgid "Display Options"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:164
+msgid "Post Title"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:174
+msgid "Link title"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:177
+msgid "Cut title after"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:180
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:204
+msgid "No cut"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:181
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:205
+msgid "Characters"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:182
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:206
+msgid "Words"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:188
+msgid "Post Content"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:198
+msgid "Link content"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:201
+msgid "Cut content after"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:212
+msgid "Post Author"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:222
+msgid "Link author"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:225
+msgid "Author label"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:231
+msgid "Post Date"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:240
+msgid "Date format"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:244
+msgid "Date label"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:251
+msgid "Post Categories"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:261
+msgid "Link Categories"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:264
+msgid "Categories label"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:268
+msgid "Categories separator"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:274
+msgid "Post Tags"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:284
+msgid "Link Tag"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:287
+msgid "Tags label"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:291
+msgid "Tags separator"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:298
+msgid "String Break"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:307
+msgid "String break"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:311
+msgid "Image String break"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:316
+msgid "Link string break"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:321
+msgid "Advanced Options"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:324
+msgid "Allowed HTML tags for content"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:328
+msgid "No post default text"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:332
+msgid "Layout Options"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:335
+msgid "Widget Layout"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:355
+msgid "Shortcode and PHP code"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:358
+msgid "Shortcode"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:362
+msgid "PHP code"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:6
+msgid "Mode"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:8
+msgid "Slide"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:9
+msgid "Fade"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:13
+msgid "Speed"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:17
+msgid "Pause"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:21
+msgid "Items"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:25
+msgid "Slide Move"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:29
+msgid "Pager"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:36
+msgid "Controls"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:43
+msgid "Auto"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:50
+msgid "Loop"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:57
+msgid "Vertical"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:64
+msgid "Vertical Height"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:68
+msgid "RTL"
+msgstr ""
