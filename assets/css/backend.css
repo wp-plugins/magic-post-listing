@@ -1,0 +1,9 @@
+.wbmpl_widget_form_container .wbmpl_widget_tab_header{background: #2ea2cc; padding: 5px 10px; cursor: pointer; color: #ffffff;}
+.wbmpl_widget_form_container label{display: block;}
+.wbmpl_widget_form_container .wbmpl_phpcode{height: 140px;}
+.wbmpl_widget_form_container .wbmpl_widefat{display: block;}
+.wbmpl_widget_form_container .wbmpl_short{width: 163px;}
+.wbmpl_widget_form_container .wbmpl_field_wrapper{border: 2px solid #cccccc; padding: 0 10px; margin: 5px 0;}
+.wbmpl_widget_form_container .wbmpl_field_wrapper legend{padding: 0 10px; font-weight: bold;}
+.wbmpl_upgrade_message{font-size: 12px; color: gray; font-style: italic;}
+.wbmpl_more_layouts_message a{text-decoration: none;}
