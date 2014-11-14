@@ -46,8 +46,8 @@ class WBMPL_main extends WBMPL_base
 		elseif($type == 'include') $url = includes_url();
 		elseif($type == 'wbmpl')
 		{
-			if(strpos(_WBMPL_ABSPATH_, 'themes') === false) $url = plugins_url().'/magic-post-listing/';
-			else $url = get_template_directory_uri().'/plugins/magic-post-listing/';
+			if(strpos(_WBMPL_ABSPATH_, 'themes') === false) $url = plugins_url().'/'._WBMPL_BASENAME_.'/';
+			else $url = get_template_directory_uri().'/plugins/'._WBMPL_BASENAME_.'/';
 		}
 		
 		return $url;

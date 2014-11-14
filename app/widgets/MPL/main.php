@@ -48,14 +48,14 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
         $assets_path = $this->main->import($this->assetspath.'.'.$layout_name.'.'.$layout_name, true, true);
         $layout_path = $this->main->import($this->tplpath.'.'.$layout_name, true, true);
         
-		/* Before widget (defined by themes). */
+		/* Before widget (defined by themes) */
 		echo $before_widget;
         
         if($this->file->exists($assets_path)) include $assets_path;
         $this->posts->generate_dynamic_styles($instance, $this->widget_id);
 		include $layout_path;
 		
-		/* After widget (defined by themes). */
+		/* After widget (defined by themes) */
 		echo $after_widget;
 	}
 
@@ -64,7 +64,7 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
 	 */
 	public function update($new_instance, $old_instance)
 	{
-		$instance = $old_instance;
+		$instance = array();
 		
 		$instance['show_widget_title'] = in_array($new_instance['show_widget_title'], array('1','0')) ? $new_instance['show_widget_title'] : 1;
 		
@@ -74,11 +74,23 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
         
 		$instance['widget_css_classes'] = trim($new_instance['widget_css_classes']) != '' ? $new_instance['widget_css_classes'] : '';
 		$instance['widget_main_color'] = trim($new_instance['widget_main_color']) != '' ? $new_instance['widget_main_color'] : '';
+        $instance['widget_main_color_ignore'] = isset($new_instance['widget_main_color_ignore']) ? 1 : 0;
 		$instance['widget_url_target'] = in_array($new_instance['widget_url_target'], array('_self','_blank')) ? $new_instance['widget_url_target'] : '_self';
         
 		$instance['post_authors'] = trim($new_instance['post_authors']) != '' ? $new_instance['post_authors'] : '';
-		$instance['post_type'] = isset($new_instance['post_type']) ? $new_instance['post_type'] : 'post';
-		
+		$post_type = isset($new_instance['post_type']) ? $new_instance['post_type'] : 'post';
+        $instance['post_type'] = $post_type;
+        
+        /** custom post type options **/
+        if(!in_array($post_type, array('post', 'page')))
+        {
+            foreach($new_instance as $key=>$value)
+            {
+                if(strpos($key, 'cpost_'.$post_type.'_') === false) continue;
+                $instance[$key] = trim($value) != '' ? $value : '';
+            }
+        }
+        
 		/** page option **/
 		$instance['parent_page'] = trim($new_instance['parent_page']) != '' ? $new_instance['parent_page'] : '0';
         $instance['include_page_ids'] = trim($new_instance['include_page_ids']) != '' ? $new_instance['include_page_ids'] : '';
@@ -160,7 +172,7 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
 		
 		$instance['shortcode'] = $codes['shortcode'];
 		$instance['phpcode'] = $codes['phpcode'];
-
+        
 		return $instance;
 	}
 

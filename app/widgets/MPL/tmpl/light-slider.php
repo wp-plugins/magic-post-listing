@@ -3,7 +3,7 @@
 defined('_WBMPLEXEC_') or die();
 ?>
 <div <?php echo $this->posts->generate_container_classes($this->widget_id, $instance); ?>>
-    <?php if(trim($widget_title) != '') echo '<div class="wbmpl_main_title">'.$widget_title.'</div>'; ?>
+    <?php if(trim($widget_title) != '') echo '<div class="wbmpl_main_title">'.$before_title.$widget_title.$after_title.'</div>'; ?>
     <?php if(count($rendered)): ?>
     <ul>
         <?php foreach($rendered as $post): ?>

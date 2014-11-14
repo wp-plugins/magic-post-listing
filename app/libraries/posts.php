@@ -16,37 +16,55 @@ class WBMPL_posts extends WBMPL_base
     
 	public function get_query($params)
 	{
-		$condition = '';
+		$condition1 = "`post_status`='publish'";
+        $condition2 = "";
 		
 		/** include post type to query **/
-		if(trim($params['post_type']) != '') $condition .= " AND `post_type`='".$params['post_type']."'";
+		if(trim($params['post_type']) != '') $condition1 .= " AND `post_type`='".$params['post_type']."'";
 		
 		/** include post authors to query **/
-		if(trim($params['post_authors']) != '') $condition .= " AND `post_author` IN (".$params['post_authors'].")";
+		if(trim($params['post_authors']) != '') $condition1 .= " AND `post_author` IN (".$params['post_authors'].")";
 		
 		/** include post queries **/
 		if($params['post_type'] == 'post')
 		{
-			if(trim($params['post_categories']) != '' and trim($params['post_categories']) != '-1') $condition .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids($params['post_categories'])."))";
+			if(trim($params['post_categories']) != '' and trim($params['post_categories']) != '-1') $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids($params['post_categories'])."))";
 			if(trim($params['post_tags']) != '')
             {
-                $condition .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids_by_names($params['post_tags'])."))";
+                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids_by_names($params['post_tags'])."))";
             }
 			
-			if(trim($params['include_post_ids']) != '') $condition .= " OR `ID` IN (".$params['include_post_ids'].")";
-			if(trim($params['exclude_post_ids']) != '') $condition .= " AND `ID` NOT IN (".$params['exclude_post_ids'].")";
+			if(trim($params['include_post_ids']) != '') $condition2 .= " OR `ID` IN (".$params['include_post_ids'].")";
+			if(trim($params['exclude_post_ids']) != '') $condition1 .= " AND `ID` NOT IN (".$params['exclude_post_ids'].")";
 		}
 		/** include page queries **/
 		elseif($params['post_type'] == 'page')
 		{
-			$condition .= " AND `post_parent`='".$params['parent_page']."'";
-			if(trim($params['include_page_ids']) != '') $condition .= " OR `ID` IN (".$params['include_page_ids'].")";
-			if(trim($params['exclude_page_ids']) != '') $condition .= " AND `ID` NOT IN (".$params['exclude_page_ids'].")";
+			$condition1 .= " AND `post_parent`='".$params['parent_page']."'";
+			if(trim($params['include_page_ids']) != '') $condition2 .= " OR `ID` IN (".$params['include_page_ids'].")";
+			if(trim($params['exclude_page_ids']) != '') $condition1 .= " AND `ID` NOT IN (".$params['exclude_page_ids'].")";
 		}
+        /** include custom post type queries **/
+        else
+        {
+            $post_type = $params['post_type'];
+            foreach($params as $key=>$value)
+            {
+                if(trim($value) == '' or $value == '-1') continue;
+                if(strpos($key, 'cpost_'.$post_type.'_terms_') === false) continue;
+                
+                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids($value)."))";
+            }
+			
+			if(trim($params['cpost_'.$post_type.'_include_post_ids']) != '') $condition2 .= " OR `ID` IN (".$params['cpost_'.$post_type.'_include_post_ids'].")";
+			if(trim($params['cpost_'.$post_type.'_exclude_post_ids']) != '') $condition1 .= " AND `ID` NOT IN (".$params['cpost_'.$post_type.'_exclude_post_ids'].")";
+        }
 		
+        $condition2 = trim($condition2, 'OR ');
+        
 		/** order and size **/
-		$condition .= " ORDER BY `".($params['listing_orderby'] ? $params['listing_orderby'] : 'post_date')."` ".($params['listing_order'] ? $params['listing_order'] : 'DESC')." LIMIT ".($params['listing_size'] ? $params['listing_size'] : 10);
-		return $query = "SELECT * FROM `#__posts` WHERE 1 AND `post_status`='publish' ".$condition;
+		$order_limit = " ORDER BY `".($params['listing_orderby'] ? $params['listing_orderby'] : 'post_date')."` ".($params['listing_order'] ? $params['listing_order'] : 'DESC')." LIMIT ".($params['listing_size'] ? $params['listing_size'] : 10);
+		return $query = "SELECT * FROM `#__posts` WHERE (".$condition1.") ".(trim($condition2) != '' ? " OR (".$condition2.")" : '').$order_limit;
 	}
 	
 	public function get_taxonomy_ids($term_ids)
@@ -147,9 +165,9 @@ class WBMPL_posts extends WBMPL_base
 	public function get_default_args()
 	{
 		return array(
-			  'show_widget_title'=>'1', 'widget_title'=>'Related Posts', 'widget_title_url'=>'', 'widget_url_target'=>'_self', 'widget_css_classes'=>'', 'widget_main_color'=>'#345d81', 'post_type'=>'post',
-			  'post_authors'=>'', 'listing_orderby'=>'post_date', 'listing_order'=>'DESC', 'listing_size'=>'10', 'include_page_ids'=>'', 'parent_page'=>'0',
-			  'exclude_page_ids'=>'', 'post_categories'=>'-1', 'post_tags'=>'', 'include_post_ids'=>'', 'exclude_post_ids'=>'',
+			  'show_widget_title'=>'1', 'widget_title'=>'Related Posts', 'widget_title_url'=>'', 'widget_url_target'=>'_self', 'widget_css_classes'=>'', 'widget_main_color'=>'#345d81',
+              'widget_main_color_ignore'=>0, 'post_type'=>'post','post_authors'=>'', 'listing_orderby'=>'post_date', 'listing_order'=>'DESC', 'listing_size'=>'10', 'include_page_ids'=>'',
+              'parent_page'=>'0', 'exclude_page_ids'=>'', 'post_categories'=>'-1', 'post_tags'=>'', 'include_post_ids'=>'', 'exclude_post_ids'=>'', 'cpost'=>array(),
 			  'thumb_show'=>'1', 'thumb_width'=>'100', 'thumb_height'=>'100', 'thumb_link'=>'1',
 			  'display_show_title'=>'1', 'display_link_title'=>'0', 'display_cut_title_size'=>'100', 'display_cut_title_mode'=>'1',
 			  'display_show_content'=>'1', 'display_link_content'=>'0', 'display_cut_content_size'=>'300', 'display_cut_content_mode'=>'1',
@@ -170,11 +188,10 @@ class WBMPL_posts extends WBMPL_base
 		
 		foreach($instance as $key=>$value)
 		{
-			if(in_array($key, array('shortcode', 'phpcode'))) continue;
-			if(isset($defaults[$key]) and $defaults[$key] == $value) continue;
-			
-			$shortcode .= ' '.$key.'="'.$value.'"';
-			$phpcode .= "'".$key."'=>'".$value."', ";
+			if(in_array($key, array('shortcode', 'phpcode')) or (isset($defaults[$key]) and $defaults[$key] == $value) or (trim($value) == '')) continue;
+            
+            $shortcode .= ' '.$key.'="'.$value.'"';
+            $phpcode .= "'".$key."'=>'".$value."', ";
 		}
 		
 		$shortcode = '[WBMPL'.(trim($shortcode) ? ' '.trim($shortcode) : '').']';
@@ -399,8 +416,10 @@ class WBMPL_posts extends WBMPL_base
     
     public function generate_dynamic_styles($instance, $widget_id)
     {
+        /** ignore applying main color is enabled **/
+        if(isset($instance['widget_main_color_ignore']) and $instance['widget_main_color_ignore']) return;
+        
         $css = '<style type="text/css">
-        #'.$this->posts->get_container_id($widget_id).' .wbmpl_main_title,
         #'.$this->posts->get_container_id($widget_id).' .wbmpl_list_title,
         #'.$this->posts->get_container_id($widget_id).' .wbmpl_list_title a,
         #'.$this->posts->get_container_id($widget_id).' .wbmpl_list_author a,

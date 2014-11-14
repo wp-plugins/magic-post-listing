@@ -21,23 +21,22 @@ function wbmpl_slide_tabs(tab_id, force, widget_id)
 
 function wbmpl_change_post_type_status(status)
 {
+    jQuery('.wbmpl_post_type_options_container').slideUp(200);
+    
     if(status == 'post')
     {
-        jQuery('.wbmpl_post_type_page_options_container').slideUp(200);
         jQuery('.wbmpl_post_type_post_options_container').slideDown(200);
         jQuery('.wbmpl_show_display_category_tags_options_container').slideDown(200);
     }
     else if(status == 'page')
     {
-        jQuery('.wbmpl_post_type_post_options_container').slideUp(200);
         jQuery('.wbmpl_post_type_page_options_container').slideDown(200);
         jQuery('.wbmpl_show_display_category_tags_options_container').slideUp(200);
     }
     else
     {
-        jQuery('.wbmpl_post_type_post_options_container').slideUp(200);
-        jQuery('.wbmpl_post_type_page_options_container').slideUp(200);
         jQuery('.wbmpl_show_display_category_tags_options_container').slideUp(200);
+        jQuery('.wbmpl_post_type_'+status+'_options_container').slideDown(200);
     }
 }
 

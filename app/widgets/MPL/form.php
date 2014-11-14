@@ -37,9 +37,13 @@ jQuery(document).ready(function()
             <label for="<?php echo $this->get_field_id('widget_css_classes'); ?>"><?php echo __('Additional CSS classes', WBMPL_TEXTDOMAIN); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('widget_css_classes'); ?>" name="<?php echo $this->get_field_name('widget_css_classes'); ?>" value="<?php echo $instance['widget_css_classes']; ?>" type="text" />
         </p>
-        <p>
+        <p class="wbmpl-no-margin-bottom">
             <label for="<?php echo $this->get_field_id('widget_main_color'); ?>"><?php echo __('Main Color', WBMPL_TEXTDOMAIN); ?></label> 
             <input id="<?php echo $this->get_field_id('widget_main_color'); ?>" name="<?php echo $this->get_field_name('widget_main_color'); ?>" type="text" value="<?php echo $instance['widget_main_color']; ?>" class="wbmpl-color-field" data-default-color="#345d81" />
+        </p>
+        <p class="wbmpl-no-margin-top">
+            <input type="checkbox" id="<?php echo $this->get_field_id('widget_main_color_ignore'); ?>" name="<?php echo $this->get_field_name('widget_main_color_ignore'); ?>" <?php if(isset($instance['widget_main_color_ignore']) and $instance['widget_main_color_ignore']) echo 'checked="checked"'; ?> />
+            <label for="<?php echo $this->get_field_id('widget_main_color_ignore'); ?>" style="display: inline;"><?php echo __("Don't apply this color.", WBMPL_TEXTDOMAIN); ?></label>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('widget_url_target'); ?>"><?php echo __('Links Target', WBMPL_TEXTDOMAIN); ?></label>
@@ -76,7 +80,7 @@ jQuery(document).ready(function()
                     <?php endforeach; ?>
                 </select>
             </p>
-            <div class="wbmpl_post_type_page_options_container" <?php if($instance['post_type'] != 'page') echo 'style="display: none;"'; ?>>
+            <div class="wbmpl_post_type_options_container wbmpl_post_type_page_options_container" <?php if($instance['post_type'] != 'page') echo 'style="display: none;"'; ?>>
                 <p>
                     <label for="<?php echo $this->get_field_id('parent_page'); ?>"><?php echo __('Parent Page', WBMPL_TEXTDOMAIN); ?></label>
                     <?php echo $this->pages_selectbox(array('name'=>$this->get_field_name('parent_page'), 'id'=>$this->get_field_id('parent_page'), 'selected'=>$instance['parent_page']), array('class'=>'widefat')); ?>
@@ -90,7 +94,7 @@ jQuery(document).ready(function()
                     <input class="widefat" id="<?php echo $this->get_field_id('exclude_page_ids'); ?>" name="<?php echo $this->get_field_name('exclude_page_ids'); ?>" value="<?php echo $instance['exclude_page_ids']; ?>" type="text" />
                 </p>
             </div>
-            <div class="wbmpl_post_type_post_options_container" <?php if($instance['post_type'] != 'post') echo 'style="display: none;"'; ?>>
+            <div class="wbmpl_post_type_options_container wbmpl_post_type_post_options_container" <?php if($instance['post_type'] != 'post') echo 'style="display: none;"'; ?>>
                 <p>
                     <label for="<?php echo $this->get_field_id('post_categories'); ?>"><?php echo __('Category', WBMPL_TEXTDOMAIN); ?></label> 
                     <?php echo $this->categories_selectbox(array('name'=>$this->get_field_name('post_categories'), 'id'=>$this->get_field_id('post_categories'), 'selected'=>$instance['post_categories']), array('class'=>'widefat')); ?>
@@ -108,6 +112,29 @@ jQuery(document).ready(function()
                     <input class="widefat" id="<?php echo $this->get_field_id('exclude_post_ids'); ?>" name="<?php echo $this->get_field_name('exclude_post_ids'); ?>" value="<?php echo $instance['exclude_post_ids']; ?>" type="text" />
                 </p>
             </div>
+            <?php foreach($post_types as $post_type): $taxonomies = get_object_taxonomies($post_type, 'objects'); ?>
+            <div class="wbmpl_post_type_options_container wbmpl_post_type_<?php echo $post_type; ?>_options_container" <?php if($instance['post_type'] != $post_type) echo 'style="display: none;"'; ?>>
+                <?php foreach($taxonomies as $taxkey=>$taxonomy): $terms = get_terms(array($taxkey), array('orderby'=>'count', 'hide_empty'=>0)); ?>
+                <p>
+                    <label for="<?php echo $this->get_field_id('cpost_'.$post_type.'_'.$taxkey); ?>"><?php echo __($taxonomy->label, WBMPL_TEXTDOMAIN); ?></label>
+                    <select id="<?php echo $this->get_field_id('cpost_'.$post_type.'_'.$taxkey); ?>" name="<?php echo $this->get_field_name('cpost_'.$post_type.'_terms_'.$taxkey); ?>" class="widefat">
+                        <option value="">---</option>
+                        <?php foreach($terms as $term): ?>
+                        <option value="<?php echo $term->term_id; ?>" <?php echo ((isset($instance['cpost_'.$post_type.'_terms_'.$taxkey]) and $instance['cpost_'.$post_type.'_terms_'.$taxkey] == $term->term_id) ? 'selected="selected"' : ''); ?>><?php echo __($term->name, WBMPL_TEXTDOMAIN); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </p>
+                <?php endforeach; ?>
+                <p>
+                    <label for="<?php echo $this->get_field_id('cpost_'.$post_type.'_include_post_ids'); ?>"><?php echo __('Include post IDs', WBMPL_TEXTDOMAIN); ?></label>
+                    <input class="widefat" id="<?php echo $this->get_field_id('cpost_'.$post_type.'_include_post_ids'); ?>" name="<?php echo $this->get_field_name('cpost_'.$post_type.'_include_post_ids'); ?>" value="<?php echo (isset($instance['cpost_'.$post_type.'_include_post_ids']) ? $instance['cpost_'.$post_type.'_include_post_ids'] : ''); ?>" type="text" />
+                </p>
+                <p>
+                    <label for="<?php echo $this->get_field_id('cpost_'.$post_type.'_exclude_post_ids'); ?>"><?php echo __('Exclude post IDs', WBMPL_TEXTDOMAIN); ?></label>
+                    <input class="widefat" id="<?php echo $this->get_field_id('cpost_'.$post_type.'_exclude_post_ids'); ?>" name="<?php echo $this->get_field_name('cpost_'.$post_type.'_exclude_post_ids'); ?>" value="<?php echo (isset($instance['cpost_'.$post_type.'_exclude_post_ids']) ? $instance['cpost_'.$post_type.'_exclude_post_ids'] : ''); ?>" type="text" />
+                </p>
+            </div>
+            <?php endforeach; ?>
         </fieldset>
         <p>
         	<label for="<?php echo $this->get_field_id('listing_orderby'); ?>"><?php echo __('Order by', WBMPL_TEXTDOMAIN); ?></label>
