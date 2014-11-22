@@ -28,10 +28,10 @@ class WBMPL_posts extends WBMPL_base
 		/** include post queries **/
 		if($params['post_type'] == 'post')
 		{
-			if(trim($params['post_categories']) != '' and trim($params['post_categories']) != '-1') $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids($params['post_categories'])."))";
+			if(trim($params['post_categories']) != '' and trim($params['post_categories']) != '-1') $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($params['post_categories'])."))";
 			if(trim($params['post_tags']) != '')
             {
-                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids_by_names($params['post_tags'])."))";
+                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids_by_names($params['post_tags'])."))";
             }
 			
 			if(trim($params['include_post_ids']) != '') $condition2 .= " OR `ID` IN (".$params['include_post_ids'].")";
@@ -53,7 +53,7 @@ class WBMPL_posts extends WBMPL_base
                 if(trim($value) == '' or $value == '-1') continue;
                 if(strpos($key, 'cpost_'.$post_type.'_terms_') === false) continue;
                 
-                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".self::get_taxonomy_ids($value)."))";
+                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($value)."))";
             }
 			
 			if(trim($params['cpost_'.$post_type.'_include_post_ids']) != '') $condition2 .= " OR `ID` IN (".$params['cpost_'.$post_type.'_include_post_ids'].")";
@@ -106,7 +106,7 @@ class WBMPL_posts extends WBMPL_base
 			$names_str .= "'".trim($value)."',";
 		}
 		
-		return self::get_taxonomy_ids(self::get_term_ids(trim($names_str, ', ')));
+		return $this->get_taxonomy_ids($this->get_term_ids(trim($names_str, ', ')));
 	}
 	
 	public function get_categories($post_id)
@@ -155,8 +155,8 @@ class WBMPL_posts extends WBMPL_base
             $author_id = $post->post_author;
             
 			$rendered[$post_id] = (array) $post;
-			$rendered[$post_id]['rendered']['thumbnail'] = self::get_thumbnail($post_id, array($instance['thumb_width'], $instance['thumb_height']));
-			$rendered[$post_id]['rendered']['link'] = self::get_post_url($post_id);
+			$rendered[$post_id]['rendered']['thumbnail'] = $this->get_thumbnail($post_id, array($instance['thumb_width'], $instance['thumb_height']));
+			$rendered[$post_id]['rendered']['link'] = $this->get_post_url($post_id);
 		}
         
 		return $rendered;
@@ -184,7 +184,7 @@ class WBMPL_posts extends WBMPL_base
 	{
 		$shortcode = '';
 		$phpcode = '';
-		$defaults = self::get_default_args();
+		$defaults = $this->get_default_args();
 		
 		foreach($instance as $key=>$value)
 		{
@@ -209,7 +209,7 @@ class WBMPL_posts extends WBMPL_base
 	public function render_title($title, $instance, $post)
 	{
 		/** get default instance **/
-		if(!$instance) $instance = self::get_default_args();
+		if(!$instance) $instance = $this->get_default_args();
 		if(!$instance['display_show_title']) return '';
 		
 		$title = strip_tags($title, $instance['allowed_html_tags']);
@@ -222,13 +222,13 @@ class WBMPL_posts extends WBMPL_base
             $ex = array_slice($ex, 0, $instance['display_cut_title_size']);
             $cutted = implode(' ', $ex);
         }
-		
+        
 		if($title != $cutted)
 		{
 			$title = $cutted;
 			$need_to_cut = true;
 		}
-		
+        
 		$break_str = '';
 		if($instance['display_show_string_break']) $break_str = trim($instance['display_string_break_img']) != '' ? '<img src="'.$instance['display_string_break_img'].'" class="wbpml_list_break_image" />' : $instance['display_string_break_str'];
 		
@@ -249,7 +249,7 @@ class WBMPL_posts extends WBMPL_base
 				else $title = $title." ".$break_str;
 			}
 		}
-		
+        
 		return $this->close_html_tags($title);
 	}
 	
@@ -325,7 +325,7 @@ class WBMPL_posts extends WBMPL_base
 	public function render_thumbnail($thumbnail, $instance, $post)
 	{
 		/** get default instance **/
-		if(!$instance) $instance = self::get_default_args();
+		if(!$instance) $instance = $this->get_default_args();
 		if(!$instance['thumb_show']) return '';
 		
 		if($instance['thumb_link']) $thumbnail = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_thumbnail_link">'.$thumbnail.'</a>';
@@ -336,7 +336,7 @@ class WBMPL_posts extends WBMPL_base
 	public function render_content($content, $instance, $post)
 	{
 		/** get default instance **/
-		if(!$instance) $instance = self::get_default_args();
+		if(!$instance) $instance = $this->get_default_args();
 		if(!$instance['display_show_content']) return '';
 		
 		$content = strip_tags($content, $instance['allowed_html_tags']);
@@ -390,8 +390,10 @@ class WBMPL_posts extends WBMPL_base
 	{
         if(!trim($html)) return $html;
         
+        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+        
 		@$doc = new DOMDocument();
-		@$doc->loadHTML("$html");
+		@$doc->loadHTML($html);
 		@$str = $doc->saveHTML();
 		$ex1 = explode('<body>', $str);
 		$ex2 = explode('</body>', $ex1[1]);

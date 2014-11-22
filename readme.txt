@@ -3,8 +3,8 @@ Contributors: webilia
 Donate link: http://webilia.com/
 Tags: post, widget, content slider, slider, wp slider, wp post slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts
 Requires at least: 3.0.1
-Tested up to: 4.0
-Stable tag: 1.1
+Tested up to: 4.0.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ Yes of course, MPL supports multiple instance widgets.
 7. Widget Output (Simple)
 
 == Changelog ==
+
+= 1.2 =
+* Fixed a UTF-8 encoding issue.
+* Fixed a responsive issue.
 
 = 1.1 =
 * Added full taxonomy support for custom post types.

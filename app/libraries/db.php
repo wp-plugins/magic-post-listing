@@ -11,16 +11,16 @@ class WBMPL_db extends WBMPL_base
 	public function q($query, $type = '')
 	{
 		/** db prefix **/
-		$query = self::_prefix($query);
+		$query = $this->_prefix($query);
 		
 		/** convert type to lowercase **/
 		$type = strtolower($type);
 		
 		/** call select function if query type if select **/
-		if($type == 'select') return self::select($query);
+		if($type == 'select') return $this->select($query);
         
 		/** db object **/
-		$database = self::get_DBO();
+		$database = $this->get_DBO();
 		
 		if($type == 'insert')
 		{
@@ -40,20 +40,20 @@ class WBMPL_db extends WBMPL_base
 		}
 		
 		/** db prefix **/
-		$query = self::_prefix($query);
+		$query = $this->_prefix($query);
 		
 		/** db object **/
-		$database = self::get_DBO();
+		$database = $this->get_DBO();
 		return $database->get_var($query);
 	}
     
 	public function select($query, $result = 'loadObjectList')
 	{
 		/** db prefix **/
-		$query = self::_prefix($query);
+		$query = $this->_prefix($query);
 		
 		/** db object **/
-		$database = self::get_DBO();
+		$database = $this->get_DBO();
 		
 		if($result == 'loadObjectList') return $database->get_results($query, OBJECT_K);
 		elseif($result == 'loadObject') return $database->get_row($query, OBJECT);
@@ -81,10 +81,10 @@ class WBMPL_db extends WBMPL_base
 		$query = "SELECT $fields FROM `#__$table` WHERE $condition";
 		
 		/** db prefix **/
-		$query = self::_prefix($query);
+		$query = $this->_prefix($query);
 		
 		/** db object **/
-		$database = self::get_DBO();
+		$database = $this->get_DBO();
 		
 		if($selects != '*' and !is_array($selects)) return $database->get_var($query);
 		elseif($return_object)
@@ -103,7 +103,7 @@ class WBMPL_db extends WBMPL_base
 	
 	public function _prefix($query)
 	{
-		$wpdb = self::get_DBO();
+		$wpdb = $this->get_DBO();
 		return str_replace('#__', $wpdb->prefix, $query);
 	}
     

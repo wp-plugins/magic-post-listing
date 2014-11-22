@@ -36,7 +36,7 @@ jQuery(document).ready(function()
             {
                 breakpoint: 480,
                 settings: {
-                    item: '.min(array($item, 2)).',
+                    item: '.min(array($item, 1)).',
                     slideMove: '.min(array($slide_move, 1)).'
                 }
             }
