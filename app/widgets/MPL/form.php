@@ -135,6 +135,10 @@ jQuery(document).ready(function()
                 </p>
             </div>
             <?php endforeach; ?>
+            <p>
+                <input id="<?php echo $this->get_field_id('exclude_current_post'); ?>" name="<?php echo $this->get_field_name('exclude_current_post'); ?>" <?php if($instance['exclude_current_post']) echo 'checked="checked"'; ?> type="checkbox" />
+                <label for="<?php echo $this->get_field_id('exclude_current_post'); ?>" style="display: inline;"><?php echo __('Exclude current post/page', WBMPL_TEXTDOMAIN); ?></label>
+            </p>
         </fieldset>
         <p>
         	<label for="<?php echo $this->get_field_id('listing_orderby'); ?>"><?php echo __('Order by', WBMPL_TEXTDOMAIN); ?></label>

@@ -17,7 +17,7 @@ class WBMPL_widgets extends WP_Widget
         $this->factory = $this->main->getFactory();
         
         /** AJAX actions **/
-        add_action('wp_ajax_wbmpl_widget_layout_form', array($this, 'render_layout_form'));
+        $this->factory->action('wp_ajax_wbmpl_widget_layout_form', array($this, 'render_layout_form'));
         
 		parent::__construct($widget_id, $widget_name, $options);
 	}

@@ -24,6 +24,13 @@ class WBMPL_posts extends WBMPL_base
 		
 		/** include post authors to query **/
 		if(trim($params['post_authors']) != '') $condition1 .= " AND `post_author` IN (".$params['post_authors'].")";
+        
+        /** exclude current post from query **/
+		if(trim($params['exclude_current_post']) and is_singular())
+        {
+            $current_post_id = get_queried_object_id();
+            if($current_post_id) $condition1 .= " AND `ID` NOT IN (".$current_post_id.")";
+        }
 		
 		/** include post queries **/
 		if($params['post_type'] == 'post')
@@ -167,7 +174,7 @@ class WBMPL_posts extends WBMPL_base
 		return array(
 			  'show_widget_title'=>'1', 'widget_title'=>'Related Posts', 'widget_title_url'=>'', 'widget_url_target'=>'_self', 'widget_css_classes'=>'', 'widget_main_color'=>'#345d81',
               'widget_main_color_ignore'=>0, 'post_type'=>'post','post_authors'=>'', 'listing_orderby'=>'post_date', 'listing_order'=>'DESC', 'listing_size'=>'10', 'include_page_ids'=>'',
-              'parent_page'=>'0', 'exclude_page_ids'=>'', 'post_categories'=>'-1', 'post_tags'=>'', 'include_post_ids'=>'', 'exclude_post_ids'=>'', 'cpost'=>array(),
+              'parent_page'=>'0', 'exclude_page_ids'=>'', 'post_categories'=>'-1', 'post_tags'=>'', 'include_post_ids'=>'', 'exclude_post_ids'=>'', 'cpost'=>array(), 'exclude_current_post'=>'1',
 			  'thumb_show'=>'1', 'thumb_width'=>'100', 'thumb_height'=>'100', 'thumb_link'=>'1',
 			  'display_show_title'=>'1', 'display_link_title'=>'0', 'display_cut_title_size'=>'100', 'display_cut_title_mode'=>'1',
 			  'display_show_content'=>'1', 'display_link_content'=>'0', 'display_cut_content_size'=>'300', 'display_cut_content_mode'=>'1',

@@ -102,6 +102,8 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
 		$instance['include_post_ids'] = trim($new_instance['include_post_ids']) != '' ? $new_instance['include_post_ids'] : '';
 		$instance['exclude_post_ids'] = trim($new_instance['exclude_post_ids']) != '' ? $new_instance['exclude_post_ids'] : '';
 		
+        $instance['exclude_current_post'] = isset($new_instance['exclude_current_post']) ? 1 : 0;
+        
 		/** size and order options **/
 		$instance['listing_orderby'] = in_array($new_instance['listing_orderby'], array('post_date','post_modified','comment_count')) ? $new_instance['listing_orderby'] : 'post_date';
 		$instance['listing_order'] = in_array($new_instance['listing_order'], array('ASC','DESC')) ? $new_instance['listing_order'] : 'ASC';
