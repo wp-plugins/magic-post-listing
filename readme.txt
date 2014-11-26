@@ -1,7 +1,7 @@
 === Magic Post Listing ===
 Contributors: webilia
 Donate link: http://webilia.com/
-Tags: post, widget, content slider, slider, wp slider, wp post slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts
+Tags: post, widget, content slider, slider, wp slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts
 Requires at least: 3.0.1
 Tested up to: 4.0.1
 Stable tag: 1.3
