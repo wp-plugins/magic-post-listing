@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: magic-post-listing\n"
-"POT-Creation-Date: 2014-11-25 20:33+0330\n"
-"PO-Revision-Date: 2014-11-25 20:33+0330\n"
+"POT-Creation-Date: 2015-02-18 18:48+0330\n"
+"PO-Revision-Date: 2015-02-18 18:48+0330\n"
 "Last-Translator: Howard <howard@realtyna.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,12 +14,6 @@ msgstr ""
 "post-listing\n"
 "X-Poedit-SearchPath-0: I:\\wbl\\xampp\\htdocs\\mpl\\wp-content\\plugins"
 "\\magic-post-listing\n"
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/factory.php:29
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/main.php:20
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/main.php:25
-msgid "Magic Post Listing"
-msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:64
 msgid "This feature is included in Magic Post Listing (MPL) PRO."
@@ -70,6 +64,8 @@ msgstr ""
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:53
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:60
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:71
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:27
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:27
 msgid "Yes"
 msgstr ""
 
@@ -89,6 +85,8 @@ msgstr ""
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:52
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:59
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:70
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:28
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:28
 msgid "No"
 msgstr ""
 
@@ -377,6 +375,51 @@ msgstr ""
 msgid "PHP code"
 msgstr ""
 
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/main.php:20
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/main.php:25
+msgid "Magic Post Listing"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/flip.php:6
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:18
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/flip.php:6
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:18
+msgid "Direction"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/flip.php:8
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/flip.php:8
+msgid "Random"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/flip.php:9
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/flip.php:9
+msgid "Top->Bottom"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/flip.php:10
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/flip.php:10
+msgid "Bottom->Top"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/flip.php:11
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/flip.php:11
+msgid "Right->Left"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/flip.php:12
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/flip.php:12
+msgid "Left->Right"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/flip.php:16
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:17
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:14
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/flip.php:16
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:14
+msgid "Pause"
+msgstr ""
+
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:6
 msgid "Mode"
 msgstr ""
@@ -390,14 +433,14 @@ msgid "Fade"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:13
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:10
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:10
 msgid "Speed"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:17
-msgid "Pause"
-msgstr ""
-
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:21
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:6
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:6
 msgid "Items"
 msgstr ""
 
@@ -431,4 +474,52 @@ msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:68
 msgid "RTL"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:7
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:7
+msgid "defines the number of rows displayed at the same time"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:11
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:11
+msgid "defines the animation speed (in ms)of the rows moving up or down"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:15
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:15
+msgid "Defines the times (in ms) before the rows automatically move"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:19
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:19
+msgid "Defines the direction of the rows movement"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:20
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:20
+msgid "UP"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:21
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:21
+msgid "Down"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:25
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:25
+msgid "Pause on Hover"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:26
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/ticker.php:26
+msgid "Enable/Disable pause when mouse hovers the newsTicker element"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:32
+msgid "Row Height"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:33
+msgid "Defines the height (in px) of one row"
 msgstr ""

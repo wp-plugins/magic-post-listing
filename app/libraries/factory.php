@@ -17,6 +17,10 @@ class WBMPL_factory extends WBMPL_base
     public function load_actions()
     {
         $this->action('wp_footer', array($this, 'load_footer'), 9999);
+        
+        /** PRO update API **/
+        $PRO = $this->main->getPRO();
+        if($PRO) $PRO->update();
     }
     
     public function load_filters()
@@ -25,8 +29,6 @@ class WBMPL_factory extends WBMPL_base
     
     public function load_menus()
     {
-        $options = WBMPL::getInstance('app.options.controller', 'WBMPL_options_controller');
-        add_submenu_page('options-general.php', __('Magic Post Listing', WBMPL_TEXTDOMAIN), __('Magic Post Listing', WBMPL_TEXTDOMAIN), 'manage_options', 'magic-post-listing', array($options, 'index'));
     }
     
     public function load_backend_assets()

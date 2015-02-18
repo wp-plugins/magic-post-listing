@@ -3,8 +3,8 @@ Contributors: webilia
 Donate link: http://webilia.com/
 Tags: post, widget, content slider, slider, wp slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts
 Requires at least: 3.0.1
-Tested up to: 4.0.1
-Stable tag: 1.3
+Tested up to: 4.1.0
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,9 +15,13 @@ Best plugin for creating content sliders and image sliders. MPL supports multipl
 Using Magic Post Listing (MPL) you can simply create content sliders for your website. MPL has some advanced options for filtering posts or pages.
 Magic Post Listing has ability to show thumbnails of posts/pages so you can simply create advanced image sliders and link the images to post/page URLs.
 
+**Post Types**
+
+MPL completely supports custom post types. Therefor using MPL and its different layouts you can simply show your custom post types. Even you can filter them by custom taxonomy options.
+
 **MPL Layouts**
 
-Magic Post Listing has a great feature for specifying layout of slider. Using layout feature of MPL you can show filtered posts/pages usinf a specific style. Currently MPL has 2 layouts, default and light-slider.
+Magic Post Listing has a great feature for specifying layout of slider. Using layout feature of MPL you can show filtered posts/pages using a specific style. Currently MPL has 2 layouts, default and light-slider.
 
 *   Default layout shows filtered posts/pages using a simple structure. This layout is useful for using as recent posts widget or using in a theme with customized style.
 *   Light-slider layout shows filtered posts/pages in a slider using a jQuery plugin. There are some useful options for this layout in MPL so you can configure it in a way that you like easily.
@@ -54,6 +58,11 @@ Yes of course, MPL supports multiple instance widgets.
 7. Widget Output (Simple)
 
 == Changelog ==
+
+= 1.4 =
+* Fixed an ID conflict.
+* Added render_field function for showing custom field data on any layout.
+* Updated language files.
 
 = 1.3 =
 * Added current post exclusion feature.

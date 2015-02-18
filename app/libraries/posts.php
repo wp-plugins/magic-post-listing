@@ -271,6 +271,11 @@ class WBMPL_posts extends WBMPL_base
         return $date;
     }
     
+    public function render_field($post_id, $key, $single = false)
+    {
+		return get_post_meta($post_id, $key, $single);
+    }
+    
     public function render_author($author_id, $instance)
     {
         $link = get_author_posts_url($author_id);

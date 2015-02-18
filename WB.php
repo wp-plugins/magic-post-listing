@@ -9,7 +9,7 @@ class WBMPL
     public function __construct()
     {
         if(!defined('WBMPL_TEXTDOMAIN')) define('WBMPL_TEXTDOMAIN', 'wbmpl'); /** Language Textdomain **/
-        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.3'); /** Version **/
+        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.4'); /** Version **/
     }
     
     public static function instance($init = true)
@@ -80,10 +80,9 @@ class WBMPL
             }
 
             /** child theme **/
-            $wp_stylesheet = get_option('stylesheet');
-            if(strpos($wp_stylesheet, '-child') !== false)
+            if(is_child_theme())
             {
-                $child_theme_path = $wp_theme_path.'-child' .DS. 'webilia' .DS. _WBMPL_BASENAME_ .DS. $file;
+                $child_theme_path = get_stylesheet_directory() .DS. 'webilia' .DS. _WBMPL_BASENAME_ .DS. $file;
 
                 if(file_exists($child_theme_path))
                 {
@@ -93,10 +92,7 @@ class WBMPL
             }
         }
 
-        if($return_path)
-        {
-            return $path;
-        }
+        if($return_path) return $path;
         
         if(file_exists($path)) require_once $path;
         return $override;
