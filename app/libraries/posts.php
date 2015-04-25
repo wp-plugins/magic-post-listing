@@ -170,7 +170,7 @@ class WBMPL_posts extends WBMPL_base
             $thumbnail = $this->get_thumbnail($post_id, array($instance['thumb_width'], $instance['thumb_height']));
             
             /** Skip post if no image found **/
-            if(isset($instance['thumb_skip']) and $instance['thumb_skip'] and !trim($thumbnail)) continue;
+            if($instance['thumb_show'] and isset($instance['thumb_skip']) and $instance['thumb_skip'] and !trim($thumbnail)) continue;
             
             $rendered[$post_id] = (array) $post;
 			$rendered[$post_id]['rendered']['thumbnail'] = $thumbnail;
