@@ -8,7 +8,7 @@ Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Best plugin for creating content sliders and image sliders. MPL supports multiple layouts with advanced options. Use it as a recent posts and carousel widget.
+Best plugin for creating content sliders and image sliders. MPL supports multiple layouts with advanced options.
 
 == Description ==
 
