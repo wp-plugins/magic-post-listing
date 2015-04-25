@@ -25,30 +25,32 @@ defined('_WBMPLEXEC_') or die();
                     <?php echo $this->posts->render_content($post['post_content'], $instance, $post); ?>
                 </div>
                 <?php endif; ?>
+                
+                <div class="wbmpl_list_details" id="wbmpl_list_details<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
+                    <?php if($instance['display_show_author']): ?>
+                    <div class="wbmpl_list_author" id="wbmpl_list_author<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
+                        <?php echo $this->posts->render_author($post['post_author'], $instance); ?>
+                    </div>
+                    <?php endif; ?>
 
-                <?php if($instance['display_show_author']): ?>
-                <div class="wbmpl_list_author" id="wbmpl_list_author<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_author($post['post_author'], $instance); ?>
-                </div>
-                <?php endif; ?>
+                    <?php if($instance['display_show_date']): ?>
+                    <div class="wbmpl_list_date" id="wbmpl_list_date<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
+                        <?php echo $this->posts->render_date($post['ID'], $instance); ?>
+                    </div>
+                    <?php endif; ?>
 
-                <?php if($instance['display_show_date']): ?>
-                <div class="wbmpl_list_date" id="wbmpl_list_date<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_date($post['ID'], $instance); ?>
-                </div>
-                <?php endif; ?>
+                    <?php if($instance['display_show_category'] and $instance['post_type'] == 'post'): ?>
+                    <div class="wbmpl_list_categories" id="wbmpl_list_categories<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
+                        <?php echo $this->posts->render_categories($post['ID'], $instance); ?>
+                    </div>
+                    <?php endif; ?>
 
-                <?php if($instance['display_show_category'] and $instance['post_type'] == 'post'): ?>
-                <div class="wbmpl_list_categories" id="wbmpl_list_categories<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_categories($post['ID'], $instance); ?>
+                    <?php if($instance['display_show_tags'] and $instance['post_type'] == 'post'): ?>
+                    <div class="wbmpl_list_tags" id="wbmpl_list_tags<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
+                        <?php echo $this->posts->render_tags($post['ID'], $instance); ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
-
-                <?php if($instance['display_show_tags'] and $instance['post_type'] == 'post'): ?>
-                <div class="wbmpl_list_tags" id="wbmpl_list_tags<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_tags($post['ID'], $instance); ?>
-                </div>
-                <?php endif; ?>
             </div>    	
         </li>
         <?php endforeach; ?>

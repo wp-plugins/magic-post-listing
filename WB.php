@@ -9,7 +9,7 @@ class WBMPL
     public function __construct()
     {
         if(!defined('WBMPL_TEXTDOMAIN')) define('WBMPL_TEXTDOMAIN', 'wbmpl'); /** Language Textdomain **/
-        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.4'); /** Version **/
+        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.5'); /** Version **/
     }
     
     public static function instance($init = true)

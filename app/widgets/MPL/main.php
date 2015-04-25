@@ -33,6 +33,11 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
         $this->widget_id = $this->number;
         if($this->widget_id < 0) $this->widget_id = abs($this->widget_id)+1000;
         
+        $before_widget = '';
+        $after_widget = '';
+        $before_title = '';
+        $after_title = '';
+        
 		extract($args);
 		
 		/* The variables from the widget settings. */
@@ -114,12 +119,14 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
 		$instance['thumb_width'] = trim($new_instance['thumb_width']) != '' ? $new_instance['thumb_width'] : 100;
 		$instance['thumb_height'] = trim($new_instance['thumb_height']) != '' ? $new_instance['thumb_height'] : 100;
 		$instance['thumb_link'] = in_array($new_instance['thumb_link'], array('0','1')) ? $new_instance['thumb_link'] : '0';
+        $instance['thumb_skip'] = trim($new_instance['thumb_skip']) ? $new_instance['thumb_skip'] : 0;
 		
 		/** item title options **/
 		$instance['display_show_title'] = in_array($new_instance['display_show_title'], array('0','1')) ? $new_instance['display_show_title'] : '1';
 		$instance['display_link_title'] = isset($new_instance['display_link_title']) ? 1 : 0;
 		$instance['display_cut_title_size'] = trim($new_instance['display_cut_title_size']) != '' ? $new_instance['display_cut_title_size'] : 100;
 		$instance['display_cut_title_mode'] = in_array($new_instance['display_cut_title_mode'], array('0','1','2')) ? $new_instance['display_cut_title_mode'] : '1';
+        $instance['display_title_html_tag'] = in_array($new_instance['display_title_html_tag'], array('','h2','h3','h4','h5','h6','strong')) ? $new_instance['display_title_html_tag'] : '';
 		
 		/** item content options **/
 		$instance['display_show_content'] = in_array($new_instance['display_show_content'], array('0','1')) ? $new_instance['display_show_content'] : '1';

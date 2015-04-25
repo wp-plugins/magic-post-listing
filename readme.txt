@@ -3,12 +3,12 @@ Contributors: webilia
 Donate link: http://webilia.com/
 Tags: post, widget, content slider, slider, wp slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts
 Requires at least: 3.0.1
-Tested up to: 4.1.0
-Stable tag: 1.4
+Tested up to: 4.2
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Best plugin for creating content sliders and image sliders. MPL supports multiple layouts with advanced options.
+Best plugin for creating content sliders and image sliders. MPL supports multiple layouts with advanced options. Use it as a recent posts and carousel widget.
 
 == Description ==
 
@@ -23,7 +23,7 @@ MPL completely supports custom post types. Therefor using MPL and its different 
 
 Magic Post Listing has a great feature for specifying layout of slider. Using layout feature of MPL you can show filtered posts/pages using a specific style. Currently MPL has 2 layouts, default and light-slider.
 
-*   Default layout shows filtered posts/pages using a simple structure. This layout is useful for using as recent posts widget or using in a theme with customized style.
+*   Default layout shows filtered posts/pages using a simple structure. This layout is useful for using as recent posts widget or using in a theme with customized style. It has list/grid option as well.
 *   Light-slider layout shows filtered posts/pages in a slider using a jQuery plugin. There are some useful options for this layout in MPL so you can configure it in a way that you like easily.
 
 **Developers**
@@ -58,6 +58,11 @@ Yes of course, MPL supports multiple instance widgets.
 7. Widget Output (Simple)
 
 == Changelog ==
+
+= 1.5 =
+* Added title HTML tag selection feature.
+* Added ability to skip posts that don't have images.
+* Added responsive display and grid size for default layout.
 
 = 1.4 =
 * Fixed an ID conflict.

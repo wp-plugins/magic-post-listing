@@ -186,6 +186,13 @@ jQuery(document).ready(function()
                         <option value="0" <?php if($instance['thumb_link'] == '0') echo 'selected="selected"'; ?>><?php echo __('No', WBMPL_TEXTDOMAIN); ?></option>
                     </select>
                 </p>
+                <p>
+                    <label for="<?php echo $this->get_field_id('thumb_skip'); ?>"><?php echo __('Skip no images posts', WBMPL_TEXTDOMAIN); ?></label>
+                    <select id="<?php echo $this->get_field_id('thumb_skip'); ?>" name="<?php echo $this->get_field_name('thumb_skip'); ?>" class="widefat">
+                        <option value="0" <?php if($instance['thumb_skip'] == '0') echo 'selected="selected"'; ?>><?php echo __('No', WBMPL_TEXTDOMAIN); ?></option>
+                        <option value="1" <?php if($instance['thumb_skip'] == '1') echo 'selected="selected"'; ?>><?php echo __('Yes', WBMPL_TEXTDOMAIN); ?></option>
+                    </select>
+                </p>
             </div>
         </fieldset>
     </div>
@@ -211,6 +218,18 @@ jQuery(document).ready(function()
                         <option value="0" <?php if($instance['display_cut_title_mode'] == '0') echo 'selected="selected"'; ?>><?php echo __('No cut', WBMPL_TEXTDOMAIN); ?></option>
                         <option value="1" <?php if($instance['display_cut_title_mode'] == '1') echo 'selected="selected"'; ?>><?php echo __('Characters', WBMPL_TEXTDOMAIN); ?></option>
                         <option value="2" <?php if($instance['display_cut_title_mode'] == '2') echo 'selected="selected"'; ?>><?php echo __('Words', WBMPL_TEXTDOMAIN); ?></option>
+                    </select>
+                </p>
+                <p>
+                    <label for="<?php echo $this->get_field_id('display_title_html_tag'); ?>"><?php echo __('Title HTML Tag', WBMPL_TEXTDOMAIN); ?></label>
+                    <select id="<?php echo $this->get_field_id('display_title_html_tag'); ?>" name="<?php echo $this->get_field_name('display_title_html_tag'); ?>" class="widefat">
+                        <option value="" <?php if($instance['display_title_html_tag'] == '') echo 'selected="selected"'; ?>>-----</option>
+                        <option value="h2" <?php if($instance['display_title_html_tag'] == 'h2') echo 'selected="selected"'; ?>><?php echo __('Heading2', WBMPL_TEXTDOMAIN); ?></option>
+                        <option value="h3" <?php if($instance['display_title_html_tag'] == 'h3') echo 'selected="selected"'; ?>><?php echo __('Heading3', WBMPL_TEXTDOMAIN); ?></option>
+                        <option value="h4" <?php if($instance['display_title_html_tag'] == 'h4') echo 'selected="selected"'; ?>><?php echo __('Heading4', WBMPL_TEXTDOMAIN); ?></option>
+                        <option value="h5" <?php if($instance['display_title_html_tag'] == 'h5') echo 'selected="selected"'; ?>><?php echo __('Heading5', WBMPL_TEXTDOMAIN); ?></option>
+                        <option value="h6" <?php if($instance['display_title_html_tag'] == 'h6') echo 'selected="selected"'; ?>><?php echo __('Heading6', WBMPL_TEXTDOMAIN); ?></option>
+                        <option value="strong" <?php if($instance['display_title_html_tag'] == 'strong') echo 'selected="selected"'; ?>><?php echo __('Bold', WBMPL_TEXTDOMAIN); ?></option>
                     </select>
                 </p>
             </div>
@@ -385,6 +404,7 @@ jQuery(document).ready(function()
     <?php if($this->main->getPRO()): ?>
     <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('code', false, '<?php echo $this->number; ?>');"><?php echo __('Shortcode and PHP code', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_code" style="display: none;">
+        <p class="wbmpl_notice_message"><?php echo __('Save to see updated Shortcode and PHP code.', WBMPL_TEXTDOMAIN); ?></p>
         <p>
             <label for="<?php echo $this->get_field_id('shortcode'); ?>"><?php echo __('Shortcode', WBMPL_TEXTDOMAIN); ?></label>
             <textarea class="widefat wbmpl_shortcode" id="<?php echo $this->get_field_id('shortcode'); ?>" name="<?php echo $this->get_field_name('shortcode'); ?>"><?php echo isset($instance['shortcode']) ? $instance['shortcode'] : ''; ?></textarea>

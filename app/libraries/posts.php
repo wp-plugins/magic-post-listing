@@ -147,6 +147,13 @@ class WBMPL_posts extends WBMPL_base
 	{
 		return get_the_post_thumbnail($post_id, $size);
 	}
+    
+    public function add_html_tag($content, $tag = '')
+	{
+        if(!trim($tag)) return $content;
+		
+        return '<'.$tag.'>'.$content.'</'.$tag.'>';
+	}
 	
 	public function get_post_url($post_id)
 	{
@@ -159,10 +166,14 @@ class WBMPL_posts extends WBMPL_base
 		foreach($posts as $post)
 		{
 			$post_id = $post->ID;
-            $author_id = $post->post_author;
             
-			$rendered[$post_id] = (array) $post;
-			$rendered[$post_id]['rendered']['thumbnail'] = $this->get_thumbnail($post_id, array($instance['thumb_width'], $instance['thumb_height']));
+            $thumbnail = $this->get_thumbnail($post_id, array($instance['thumb_width'], $instance['thumb_height']));
+            
+            /** Skip post if no image found **/
+            if(isset($instance['thumb_skip']) and $instance['thumb_skip'] and !trim($thumbnail)) continue;
+            
+            $rendered[$post_id] = (array) $post;
+			$rendered[$post_id]['rendered']['thumbnail'] = $thumbnail;
 			$rendered[$post_id]['rendered']['link'] = $this->get_post_url($post_id);
 		}
         
@@ -175,8 +186,8 @@ class WBMPL_posts extends WBMPL_base
 			  'show_widget_title'=>'1', 'widget_title'=>'Related Posts', 'widget_title_url'=>'', 'widget_url_target'=>'_self', 'widget_css_classes'=>'', 'widget_main_color'=>'#345d81',
               'widget_main_color_ignore'=>0, 'post_type'=>'post','post_authors'=>'', 'listing_orderby'=>'post_date', 'listing_order'=>'DESC', 'listing_size'=>'10', 'include_page_ids'=>'',
               'parent_page'=>'0', 'exclude_page_ids'=>'', 'post_categories'=>'-1', 'post_tags'=>'', 'include_post_ids'=>'', 'exclude_post_ids'=>'', 'cpost'=>array(), 'exclude_current_post'=>'1',
-			  'thumb_show'=>'1', 'thumb_width'=>'100', 'thumb_height'=>'100', 'thumb_link'=>'1',
-			  'display_show_title'=>'1', 'display_link_title'=>'0', 'display_cut_title_size'=>'100', 'display_cut_title_mode'=>'1',
+			  'thumb_show'=>'1', 'thumb_width'=>'100', 'thumb_height'=>'100', 'thumb_link'=>'1', 'thumb_skip'=>'0',
+			  'display_show_title'=>'1', 'display_link_title'=>'0', 'display_cut_title_size'=>'100', 'display_cut_title_mode'=>'1', 'display_title_html_tag'=>'',
 			  'display_show_content'=>'1', 'display_link_content'=>'0', 'display_cut_content_size'=>'300', 'display_cut_content_mode'=>'1',
 			  'display_show_author'=>'1', 'display_link_author'=>'0', 'display_author_label'=>'',
 			  'display_show_date'=>'0', 'display_date_format'=>'Default', 'display_date_label'=>'Date: ',
@@ -243,17 +254,17 @@ class WBMPL_posts extends WBMPL_base
 		{
 			if($need_to_cut)
 			{
-				if($instance['display_link_string_break']) $title = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_title_link">'.$title." ".$break_str.'</a>';
-				else $title = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_title_link">'.$title.'</a> '.$break_str;
+				if($instance['display_link_string_break']) $title = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_title_link">'.$this->add_html_tag($title." ".$break_str, $instance['display_title_html_tag']).'</a>';
+				else $title = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_title_link">'.$this->add_html_tag($title, $instance['display_title_html_tag']).'</a> '.$break_str;
 			}
-			else $title = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_title_link">'.$title.'</a>';
+			else $title = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_title_link">'.$this->add_html_tag($title, $instance['display_title_html_tag']).'</a>';
 		}
 		else
 		{
 			if($need_to_cut)
 			{
-				if($instance['display_link_string_break']) $title = $title.' <a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_string_break_link">'.$break_str.'</a>';
-				else $title = $title." ".$break_str;
+				if($instance['display_link_string_break']) $title = $this->add_html_tag($title, $instance['display_title_html_tag']).' <a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_string_break_link">'.$break_str.'</a>';
+				else $title = $this->add_html_tag($title." ".$break_str, $instance['display_title_html_tag']);
 			}
 		}
         
@@ -338,7 +349,7 @@ class WBMPL_posts extends WBMPL_base
 	{
 		/** get default instance **/
 		if(!$instance) $instance = $this->get_default_args();
-		if(!$instance['thumb_show']) return '';
+		if(!$instance['thumb_show'] or !trim($thumbnail)) return '';
 		
 		if($instance['thumb_link']) $thumbnail = '<a href="'.$post['rendered']['link'].'" target="'.$instance['widget_url_target'].'" class="wbpml_list_thumbnail_link">'.$thumbnail.'</a>';
 		
