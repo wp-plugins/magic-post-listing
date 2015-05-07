@@ -57,14 +57,14 @@ class WBMPL_posts extends WBMPL_base
             $post_type = $params['post_type'];
             foreach($params as $key=>$value)
             {
-                if(trim($value) == '' or $value == '-1') continue;
+                if(!is_array($value) and (trim($value) == '' or $value == '-1')) continue;
                 if(strpos($key, 'cpost_'.$post_type.'_terms_') === false) continue;
                 
                 $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($value)."))";
             }
 			
-			if(trim($params['cpost_'.$post_type.'_include_post_ids']) != '') $condition2 .= " OR `ID` IN (".$params['cpost_'.$post_type.'_include_post_ids'].")";
-			if(trim($params['cpost_'.$post_type.'_exclude_post_ids']) != '') $condition1 .= " AND `ID` NOT IN (".$params['cpost_'.$post_type.'_exclude_post_ids'].")";
+			if(isset($params['cpost_'.$post_type.'_include_post_ids']) and trim($params['cpost_'.$post_type.'_include_post_ids']) != '') $condition2 .= " OR `ID` IN (".$params['cpost_'.$post_type.'_include_post_ids'].")";
+			if(isset($params['cpost_'.$post_type.'_include_post_ids']) and trim($params['cpost_'.$post_type.'_exclude_post_ids']) != '') $condition1 .= " AND `ID` NOT IN (".$params['cpost_'.$post_type.'_exclude_post_ids'].")";
         }
 		
         $condition2 = trim($condition2, 'OR ');
@@ -370,7 +370,7 @@ class WBMPL_posts extends WBMPL_base
 		elseif($instance['display_cut_content_mode'] == 2)
         {
             $ex = explode(' ', $content);
-            $ex = array_slice($ex, 0, $instance['display_cut_title_size']);
+            $ex = array_slice($ex, 0, $instance['display_cut_content_size']);
             $cutted = implode(' ', $ex);
         }
 		
@@ -435,7 +435,7 @@ class WBMPL_posts extends WBMPL_base
     
     public function generate_container_classes($widget_id, $instance)
     {
-        $layout_name = str_replace('.php', '', $instance['display_layout']);
+        $layout_name = str_replace('-', '_', str_replace('.php', '', $instance['display_layout']));
         return ($widget_id ? 'id="'.$this->get_container_id($widget_id).'" ' : '').'class="wbmpl_main_container wbmpl_main_container_'.$layout_name.(trim($instance['widget_css_classes']) != '' ? ' '.$instance['widget_css_classes'] : '').'"';
     }
     

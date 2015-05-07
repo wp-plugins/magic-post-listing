@@ -1,11 +1,12 @@
 <?php
 /** no direct access **/
 defined('_WBMPLEXEC_') or die();
+$layout_item = isset($instance['layout_item']) ? $instance['layout_item'] : 3;
 ?>
 <div <?php echo $this->posts->generate_container_classes($this->widget_id, $instance); ?>>
     <?php if(trim($widget_title) != '') echo '<div class="wbmpl_main_title">'.$before_title.$widget_title.$after_title.'</div>'; ?>
     <?php if(count($rendered)): ?>
-    <ul>
+    <ul class="wbmpl_light_slider_size<?php echo $layout_item; ?>">
         <?php foreach($rendered as $post): ?>
         <li id="wbmpl_list_container<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>" class="wbmpl_list_container">
             <?php if($instance['thumb_show']): ?>

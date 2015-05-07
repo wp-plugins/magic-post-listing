@@ -4,22 +4,26 @@ defined('_WBMPLEXEC_') or die();
 
 class WBMPL
 {
-    public static $instance = NULL;
-    
-    public function __construct()
+    protected function __construct()
     {
         if(!defined('WBMPL_TEXTDOMAIN')) define('WBMPL_TEXTDOMAIN', 'wbmpl'); /** Language Textdomain **/
-        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.5'); /** Version **/
+        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.6'); /** Version **/
     }
     
-    public static function instance($init = true)
+    private function __clone()
+    {
+    }
+    
+    private function __wakeup()
+    {
+    }
+    
+    public static function instance()
 	{
-		if(!self::$instance)
-		{
-			self::$instance = new WBMPL();
-		}
-
-		return self::$instance;
+        static $instance = null;
+        if(null === $instance) $instance = new static();
+        
+        return $instance;
 	}
     
     public function init()
