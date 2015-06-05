@@ -4,7 +4,7 @@ Donate link: http://webilia.com/
 Tags: post, widget, content slider, slider, wp slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts, post list
 Requires at least: 3.0.1
 Tested up to: 4.2.2
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,10 @@ Yes of course, MPL supports multiple instance widgets.
 7. Widget Output (Simple)
 
 == Changelog ==
+
+= 1.7 =
+* Added current category filter for category archive pages.
+* Added current tag filter for category archive pages.
 
 = 1.6 =
 * Fixed content cut issue.

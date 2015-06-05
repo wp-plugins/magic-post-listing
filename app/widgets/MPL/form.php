@@ -100,8 +100,16 @@ jQuery(document).ready(function()
                     <?php echo $this->categories_selectbox(array('name'=>$this->get_field_name('post_categories'), 'id'=>$this->get_field_id('post_categories'), 'selected'=>$instance['post_categories']), array('class'=>'widefat')); ?>
                 </p>
                 <p>
+                    <input id="<?php echo $this->get_field_id('include_current_category'); ?>" name="<?php echo $this->get_field_name('include_current_category'); ?>" <?php if(isset($instance['include_current_category']) and $instance['include_current_category']) echo 'checked="checked"'; ?> type="checkbox" />
+                    <label for="<?php echo $this->get_field_id('include_current_category'); ?>" style="display: inline;"><?php echo __('Include current category', WBMPL_TEXTDOMAIN); ?></label>
+                </p>
+                <p>
                     <label for="<?php echo $this->get_field_id('post_tags'); ?>"><?php echo __('Post tags', WBMPL_TEXTDOMAIN); ?></label>
                     <input class="widefat" id="<?php echo $this->get_field_id('post_tags'); ?>" name="<?php echo $this->get_field_name('post_tags'); ?>" value="<?php echo $instance['post_tags']; ?>" type="text" />
+                </p>
+                <p>
+                    <input id="<?php echo $this->get_field_id('include_current_tag'); ?>" name="<?php echo $this->get_field_name('include_current_tag'); ?>" <?php if(isset($instance['include_current_tag']) and $instance['include_current_tag']) echo 'checked="checked"'; ?> type="checkbox" />
+                    <label for="<?php echo $this->get_field_id('include_current_tag'); ?>" style="display: inline;"><?php echo __('Include current tag', WBMPL_TEXTDOMAIN); ?></label>
                 </p>
                 <p>
                     <label for="<?php echo $this->get_field_id('include_post_ids'); ?>"><?php echo __('Include post IDs', WBMPL_TEXTDOMAIN); ?></label>

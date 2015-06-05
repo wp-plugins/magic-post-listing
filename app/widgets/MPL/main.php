@@ -103,7 +103,11 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
 		
 		/** post option **/
 		$instance['post_categories'] = trim($new_instance['post_categories']) != '' ? $new_instance['post_categories'] : '';
+        $instance['include_current_category'] = isset($new_instance['include_current_category']) ? 1 : 0;
+        
 		$instance['post_tags'] = trim($new_instance['post_tags']) != '' ? $new_instance['post_tags'] : '';
+        $instance['include_current_tag'] = isset($new_instance['include_current_tag']) ? 1 : 0;
+        
 		$instance['include_post_ids'] = trim($new_instance['include_post_ids']) != '' ? $new_instance['include_post_ids'] : '';
 		$instance['exclude_post_ids'] = trim($new_instance['exclude_post_ids']) != '' ? $new_instance['exclude_post_ids'] : '';
 		

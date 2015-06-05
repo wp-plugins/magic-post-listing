@@ -7,7 +7,7 @@ class WBMPL
     protected function __construct()
     {
         if(!defined('WBMPL_TEXTDOMAIN')) define('WBMPL_TEXTDOMAIN', 'wbmpl'); /** Language Textdomain **/
-        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.6'); /** Version **/
+        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.7'); /** Version **/
     }
     
     private function __clone()

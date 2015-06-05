@@ -35,8 +35,24 @@ class WBMPL_posts extends WBMPL_base
 		/** include post queries **/
 		if($params['post_type'] == 'post')
 		{
-			if(trim($params['post_categories']) != '' and trim($params['post_categories']) != '-1') $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($params['post_categories'])."))";
-			if(trim($params['post_tags']) != '')
+            /** Include current Category **/
+            if(is_category() and isset($params['include_current_category']) and $params['include_current_category'])
+            {
+                $category = get_category(get_query_var('cat'));
+                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($category->cat_ID)."))";
+            }
+            elseif(trim($params['post_categories']) != '' and trim($params['post_categories']) != '-1')
+            {
+                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($params['post_categories'])."))";
+            }
+            
+            /** Include current Tag **/
+            if(is_tag() and isset($params['include_current_tag']) and $params['include_current_tag'])
+            {
+                $queried_object = get_queried_object();
+                $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($queried_object->term_id)."))";
+            }
+            elseif(trim($params['post_tags']) != '')
             {
                 $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids_by_names($params['post_tags'])."))";
             }
@@ -71,7 +87,7 @@ class WBMPL_posts extends WBMPL_base
         
 		/** order and size **/
 		$order_limit = " ORDER BY `".($params['listing_orderby'] ? $params['listing_orderby'] : 'post_date')."` ".($params['listing_order'] ? $params['listing_order'] : 'DESC')." LIMIT ".($params['listing_size'] ? $params['listing_size'] : 10);
-		return $query = "SELECT * FROM `#__posts` WHERE (".$condition1.") ".(trim($condition2) != '' ? " OR (".$condition2.")" : '').$order_limit;
+		return "SELECT * FROM `#__posts` WHERE (".$condition1.") ".(trim($condition2) != '' ? " OR (".$condition2.")" : '').$order_limit;
 	}
 	
 	public function get_taxonomy_ids($term_ids)
@@ -185,7 +201,7 @@ class WBMPL_posts extends WBMPL_base
 		return array(
 			  'show_widget_title'=>'1', 'widget_title'=>'Related Posts', 'widget_title_url'=>'', 'widget_url_target'=>'_self', 'widget_css_classes'=>'', 'widget_main_color'=>'#345d81',
               'widget_main_color_ignore'=>0, 'post_type'=>'post','post_authors'=>'', 'listing_orderby'=>'post_date', 'listing_order'=>'DESC', 'listing_size'=>'10', 'include_page_ids'=>'',
-              'parent_page'=>'0', 'exclude_page_ids'=>'', 'post_categories'=>'-1', 'post_tags'=>'', 'include_post_ids'=>'', 'exclude_post_ids'=>'', 'cpost'=>array(), 'exclude_current_post'=>'1',
+              'parent_page'=>'0', 'exclude_page_ids'=>'', 'post_categories'=>'-1', 'include_current_category'=>'0', 'post_tags'=>'', 'include_current_tag'=>'0', 'include_post_ids'=>'', 'exclude_post_ids'=>'', 'cpost'=>array(), 'exclude_current_post'=>'1',
 			  'thumb_show'=>'1', 'thumb_width'=>'100', 'thumb_height'=>'100', 'thumb_link'=>'1', 'thumb_skip'=>'0',
 			  'display_show_title'=>'1', 'display_link_title'=>'0', 'display_cut_title_size'=>'100', 'display_cut_title_mode'=>'1', 'display_title_html_tag'=>'',
 			  'display_show_content'=>'1', 'display_link_content'=>'0', 'display_cut_content_size'=>'300', 'display_cut_content_mode'=>'1',
