@@ -2,30 +2,52 @@
 /** no direct access **/
 defined('_WBMPLEXEC_') or die();
 
+/**
+ * Webilia MPL request class.
+ * @author Webilia <info@webilia.com>
+ */
 class WBMPL_request extends WBMPL_base
 {
+    /**
+     * Constructor method
+     * @author Webilia <info@webilia.com>
+     */
     public function __construct()
     {
     }
     
+    /**
+     * Returns Request Method
+     * @author Webilia <info@webilia.com>
+     * @static
+     * @return string
+     */
 	public static function get_method()
 	{
-		$method = strtoupper($_SERVER['REQUEST_METHOD']);
-		return $method;
+		return strtoupper($_SERVER['REQUEST_METHOD']);
 	}
 	
+    /**
+     * Get a variable from Request parameters
+     * @author Webilia <info@webilia.com>
+     * @static
+     * @param string $name
+     * @param mixed $default
+     * @param string $hash
+     * @return mixed
+     */
 	public static function getVar($name, $default = null, $hash = 'default')
 	{
 		// Ensure hash and type are uppercase
 		$hash = strtoupper($hash);
 		
-		if ($hash === 'METHOD')
+		if($hash === 'METHOD')
 		{
 			$hash = strtoupper($_SERVER['REQUEST_METHOD']);
 		}
 
 		// Get the input hash
-		switch ($hash)
+		switch($hash)
 		{
 			case 'GET':
 				$input = &$_GET;
@@ -55,17 +77,24 @@ class WBMPL_request extends WBMPL_base
 		return $var;
 	}
 
+    /**
+     * Get whole of request variables
+     * @author Webilia <info@webilia.com>
+     * @static
+     * @param string $hash
+     * @return mixed
+     */
 	public static function get($hash = 'default')
 	{
 		// Ensure hash and type are uppercase
 		$hash = strtoupper($hash);
 
-		if ($hash === 'METHOD')
+		if($hash === 'METHOD')
 		{
 			$hash = strtoupper($_SERVER['REQUEST_METHOD']);
 		}
 
-		switch ($hash)
+		switch($hash)
 		{
 			case 'GET':
 				$input = $_GET;
@@ -97,5 +126,50 @@ class WBMPL_request extends WBMPL_base
 		}
 
 		return $input;
+	}
+    
+    /**
+     * Sets a new variable to the request parameters
+     * @author Webilia <info@webilia.com>
+     * @static
+     * @param string $name
+     * @param mixed $value
+     * @param string $hash
+     * @return mixed
+     */
+    public static function setVar($name, $value = null, $hash = 'method')
+	{
+		// Get the request hash value
+		$hash = strtoupper($hash);
+		if($hash === 'METHOD') $hash = strtoupper($_SERVER['REQUEST_METHOD']);
+
+		$previous = array_key_exists($name, $_REQUEST) ? $_REQUEST[$name] : null;
+
+		switch($hash)
+		{
+			case 'GET':
+				$_GET[$name] = $value;
+				$_REQUEST[$name] = $value;
+				break;
+			case 'POST':
+				$_POST[$name] = $value;
+				$_REQUEST[$name] = $value;
+				break;
+			case 'COOKIE':
+				$_COOKIE[$name] = $value;
+				$_REQUEST[$name] = $value;
+				break;
+			case 'FILES':
+				$_FILES[$name] = $value;
+				break;
+			case 'ENV':
+				$_ENV['name'] = $value;
+				break;
+			case 'SERVER':
+				$_SERVER['name'] = $value;
+				break;
+		}
+		
+		return $previous;
 	}
 }

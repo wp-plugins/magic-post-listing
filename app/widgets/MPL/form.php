@@ -24,7 +24,7 @@ jQuery(document).ready(function()
             </p>
             <div class="wbmpl_title_options_container" id="<?php echo $this->get_field_id('wbmpl_title_options_container'); ?>" <?php if($instance['show_widget_title'] == 0) echo 'style="display: none;"'; ?>>
                 <p>
-                    <label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php echo __('Widget title', WBMPL_TEXTDOMAIN); ?></label>
+                    <label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php echo __('Widget Title', WBMPL_TEXTDOMAIN); ?></label>
                     <input class="widefat" id="<?php echo $this->get_field_id('widget_title'); ?>" name="<?php echo $this->get_field_name('widget_title'); ?>" value="<?php echo $instance['widget_title']; ?>" type="text" />
                 </p>
                 <p>
@@ -75,8 +75,8 @@ jQuery(document).ready(function()
                 <select id="<?php echo $this->get_field_id('post_type'); ?>" name="<?php echo $this->get_field_name('post_type'); ?>" class="widefat" onchange="wbmpl_change_post_type_status(this.value);">
                     <option value="post" <?php if($instance['post_type'] == 'post') echo 'selected="selected"'; ?>><?php echo __('Post', WBMPL_TEXTDOMAIN); ?></option>
                     <option value="page" <?php if($instance['post_type'] == 'page') echo 'selected="selected"'; ?>><?php echo __('Page', WBMPL_TEXTDOMAIN); ?></option>
-                    <?php foreach($post_types as $post_type): ?>
-                    <option value="<?php echo $post_type; ?>" <?php if($instance['post_type'] == $post_type) echo 'selected="selected"'; ?>><?php echo __($post_type, WBMPL_TEXTDOMAIN); ?></option>
+                    <?php foreach($post_types as $post_type): $PTO = get_post_type_object($post_type); ?>
+                    <option value="<?php echo $post_type; ?>" <?php if($instance['post_type'] == $post_type) echo 'selected="selected"'; ?>><?php echo __($PTO->labels->singular_name, WBMPL_TEXTDOMAIN); ?></option>
                     <?php endforeach; ?>
                 </select>
             </p>
@@ -96,7 +96,7 @@ jQuery(document).ready(function()
             </div>
             <div class="wbmpl_post_type_options_container wbmpl_post_type_post_options_container" <?php if($instance['post_type'] != 'post') echo 'style="display: none;"'; ?>>
                 <p>
-                    <label for="<?php echo $this->get_field_id('post_categories'); ?>"><?php echo __('Category', WBMPL_TEXTDOMAIN); ?></label> 
+                    <label for="<?php echo $this->get_field_id('post_categories'); ?>"><?php echo __('Post Category', WBMPL_TEXTDOMAIN); ?></label> 
                     <?php echo $this->categories_selectbox(array('name'=>$this->get_field_name('post_categories'), 'id'=>$this->get_field_id('post_categories'), 'selected'=>$instance['post_categories']), array('class'=>'widefat')); ?>
                 </p>
                 <p>
@@ -104,7 +104,7 @@ jQuery(document).ready(function()
                     <label for="<?php echo $this->get_field_id('include_current_category'); ?>" style="display: inline;"><?php echo __('Include current category', WBMPL_TEXTDOMAIN); ?></label>
                 </p>
                 <p>
-                    <label for="<?php echo $this->get_field_id('post_tags'); ?>"><?php echo __('Post tags', WBMPL_TEXTDOMAIN); ?></label>
+                    <label for="<?php echo $this->get_field_id('post_tags'); ?>"><?php echo __('Post Tags', WBMPL_TEXTDOMAIN); ?></label>
                     <input class="widefat" id="<?php echo $this->get_field_id('post_tags'); ?>" name="<?php echo $this->get_field_name('post_tags'); ?>" value="<?php echo $instance['post_tags']; ?>" type="text" />
                 </p>
                 <p>
@@ -188,7 +188,7 @@ jQuery(document).ready(function()
                     <input id="<?php echo $this->get_field_id('thumb_height'); ?>" name="<?php echo $this->get_field_name('thumb_height'); ?>" value="<?php echo $instance['thumb_height']; ?>" type="text" class="widefat" />
                 </p>
                 <p>
-                    <label for="<?php echo $this->get_field_id('thumb_link'); ?>"><?php echo __('Link thumbnail to post', WBMPL_TEXTDOMAIN); ?></label>
+                    <label for="<?php echo $this->get_field_id('thumb_link'); ?>"><?php echo __('Link thumbnails to post', WBMPL_TEXTDOMAIN); ?></label>
                     <select id="<?php echo $this->get_field_id('thumb_link'); ?>" name="<?php echo $this->get_field_name('thumb_link'); ?>" class="widefat">
                         <option value="1" <?php if($instance['thumb_link'] == '1') echo 'selected="selected"'; ?>><?php echo __('Yes', WBMPL_TEXTDOMAIN); ?></option>
                         <option value="0" <?php if($instance['thumb_link'] == '0') echo 'selected="selected"'; ?>><?php echo __('No', WBMPL_TEXTDOMAIN); ?></option>
@@ -221,7 +221,7 @@ jQuery(document).ready(function()
                 </p>
                 <p>
                     <label for="<?php echo $this->get_field_id('display_cut_title_size'); ?>"><?php echo __('Cut title after', WBMPL_TEXTDOMAIN); ?></label>
-                    <input class="wbmpl_short" id="<?php echo $this->get_field_id('display_cut_title_size'); ?>" name="<?php echo $this->get_field_name('display_cut_title_size'); ?>" value="<?php echo $instance['display_cut_title_size']; ?>" type="text" style=" <?php if($instance['display_cut_title_mode'] == 0) echo 'display: none;'; ?>" />
+                    <input class="wbmpl_short" id="<?php echo $this->get_field_id('display_cut_title_size'); ?>" name="<?php echo $this->get_field_name('display_cut_title_size'); ?>" value="<?php echo $instance['display_cut_title_size']; ?>" type="text" />
                     <select id="<?php echo $this->get_field_id('display_cut_title_mode'); ?>" name="<?php echo $this->get_field_name('display_cut_title_mode'); ?>">
                         <option value="0" <?php if($instance['display_cut_title_mode'] == '0') echo 'selected="selected"'; ?>><?php echo __('No cut', WBMPL_TEXTDOMAIN); ?></option>
                         <option value="1" <?php if($instance['display_cut_title_mode'] == '1') echo 'selected="selected"'; ?>><?php echo __('Characters', WBMPL_TEXTDOMAIN); ?></option>
@@ -257,7 +257,7 @@ jQuery(document).ready(function()
                 </p>
                 <p>
                     <label for="<?php echo $this->get_field_id('display_cut_content_size'); ?>"><?php echo __('Cut content after', WBMPL_TEXTDOMAIN); ?></label>
-                    <input class="wbmpl_short" id="<?php echo $this->get_field_id('display_cut_content_size'); ?>" name="<?php echo $this->get_field_name('display_cut_content_size'); ?>" value="<?php echo $instance['display_cut_content_size']; ?>" type="text" style=" <?php if($instance['display_cut_content_mode'] == 0) echo 'display: none;'; ?>" />
+                    <input class="wbmpl_short" id="<?php echo $this->get_field_id('display_cut_content_size'); ?>" name="<?php echo $this->get_field_name('display_cut_content_size'); ?>" value="<?php echo $instance['display_cut_content_size']; ?>" type="text" />
                     <select id="<?php echo $this->get_field_id('display_cut_content_mode'); ?>" name="<?php echo $this->get_field_name('display_cut_content_mode'); ?>">
                         <option value="0" <?php if($instance['display_cut_content_mode'] == '0') echo 'selected="selected"'; ?>><?php echo __('No cut', WBMPL_TEXTDOMAIN); ?></option>
                         <option value="1" <?php if($instance['display_cut_content_mode'] == '1') echo 'selected="selected"'; ?>><?php echo __('Characters', WBMPL_TEXTDOMAIN); ?></option>
@@ -362,16 +362,16 @@ jQuery(document).ready(function()
             </p>
             <div class="wbmpl_show_display_string_break_options_container" <?php if($instance['display_show_string_break'] == '0') echo 'style="display: none;"'; ?>>
                 <p>
-                    <label for="<?php echo $this->get_field_id('display_string_break_str'); ?>"><?php echo __('String break', WBMPL_TEXTDOMAIN); ?></label>
+                    <label for="<?php echo $this->get_field_id('display_string_break_str'); ?>"><?php echo __('String Break', WBMPL_TEXTDOMAIN); ?></label>
                     <input class="widefat" id="<?php echo $this->get_field_id('display_string_break_str'); ?>" name="<?php echo $this->get_field_name('display_string_break_str'); ?>" value="<?php echo $instance['display_string_break_str']; ?>" type="text" />
                 </p>
                 <p>
-                    <label for="<?php echo $this->get_field_id('display_string_break_img'); ?>"><?php echo __('Image String break', WBMPL_TEXTDOMAIN); ?></label>
+                    <label for="<?php echo $this->get_field_id('display_string_break_img'); ?>"><?php echo __('String Break Image', WBMPL_TEXTDOMAIN); ?></label>
                     <input class="widefat" id="<?php echo $this->get_field_id('display_string_break_img'); ?>" name="<?php echo $this->get_field_name('display_string_break_img'); ?>" value="<?php echo $instance['display_string_break_img']; ?>" type="text" />
                 </p>
                 <p>
                     <input id="<?php echo $this->get_field_id('display_link_string_break'); ?>" name="<?php echo $this->get_field_name('display_link_string_break'); ?>" <?php if($instance['display_link_string_break']) echo 'checked="checked"'; ?> type="checkbox" />
-                    <label class="widefat" for="<?php echo $this->get_field_id('display_link_string_break'); ?>" style="display: inline;"><?php echo __('Link string break', WBMPL_TEXTDOMAIN); ?></label>
+                    <label class="widefat" for="<?php echo $this->get_field_id('display_link_string_break'); ?>" style="display: inline;"><?php echo __('Link String Break', WBMPL_TEXTDOMAIN); ?></label>
                 </p>
             </div>
         </fieldset>

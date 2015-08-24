@@ -70,3 +70,17 @@ function wbmpl_load_widget_form(id, number, layout, container)
         }
     });
 }
+
+jQuery(document).ready(function()
+{
+    jQuery('#wbmpl_close_upgrade_notice').on('click', function()
+    {
+        jQuery('#wbmpl_upgrade_notice').css('display', 'none');
+        
+        var data = {action: 'wbmpl_hide_upgrade_notice'};
+
+        jQuery.post(ajaxurl, data, function(response)
+        {
+        });
+    });
+});

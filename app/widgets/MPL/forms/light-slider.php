@@ -40,7 +40,7 @@ defined('_WBMPLEXEC_') or die();
     </select>
 </p>
 <p>
-    <label for="<?php echo $this->get_field_id('layout_auto'); ?>"><?php echo __('Auto', WBMPL_TEXTDOMAIN); ?></label>
+    <label for="<?php echo $this->get_field_id('layout_auto'); ?>"><?php echo __('Auto Play', WBMPL_TEXTDOMAIN); ?></label>
     <select id="<?php echo $this->get_field_id('layout_auto'); ?>" name="<?php echo $this->get_field_name('layout_auto'); ?>" class="widefat">
         <option value="1" <?php echo ((isset($instance['layout_auto']) and $instance['layout_auto'] == '1') ? 'selected="selected"' : ''); ?>><?php echo __('Yes', WBMPL_TEXTDOMAIN); ?></option>
         <option value="0" <?php echo ((isset($instance['layout_auto']) and $instance['layout_auto'] == '0') ? 'selected="selected"' : ''); ?>><?php echo __('No', WBMPL_TEXTDOMAIN); ?></option>

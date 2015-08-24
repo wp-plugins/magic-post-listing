@@ -2,9 +2,10 @@
 /** no direct access **/
 defined('_WBMPLEXEC_') or die();
 
-/** Responsive cares for Grid **/
+// Responsive cares for Grid
 if((isset($instance['layout_display']) and $instance['layout_display'] == '2'))
 {
+    // Generating javascript code of the widget
     $javascript = '<script type="text/javascript">
     jQuery(document).ready(function()
     {
@@ -44,5 +45,6 @@ if((isset($instance['layout_display']) and $instance['layout_display'] == '2'))
     });
     </script>';
 
+    // Include javascript code into the footer
     $this->factory->params('footer', $javascript);
 }

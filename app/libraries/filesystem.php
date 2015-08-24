@@ -2,28 +2,58 @@
 /** no direct access **/
 defined('_WBMPLEXEC_') or die();
 
+/**
+ * Webilia MPL File class.
+ * @author Webilia <info@webilia.com>
+ */
 class WBMPL_file extends WBMPL_base
 {
+    /**
+     * Constructor method
+     * @author Webilia <info@webilia.com>
+     */
     public function __construct()
     {
     }
     
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $file
+     * @return string
+     */
 	public static function getExt($file)
 	{
 		return end(explode('.', $file));
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $file
+     * @return string
+     */
 	public static function stripExt($file)
 	{
 		return preg_replace('#\.[^.]*$#', '', $file);
 	}
     
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $file
+     * @return string
+     */
 	public static function makeSafe($file)
 	{
 		$regex = array('#(\.){2,}#', '#[^A-Za-z0-9\.\_\- ]#', '#^\.#');
 		return preg_replace($regex, '', $file);
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $src
+     * @param string $dest
+     * @param string $path
+     * @return boolean
+     */
 	public static function copy($src, $dest, $path = null)
 	{
 		// Prepend a base path if it exists
@@ -47,9 +77,14 @@ class WBMPL_file extends WBMPL_base
 		return true;
 	}
     
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $file
+     * @return boolean
+     */
 	public static function delete($file)
 	{
-		if (is_array($file))
+		if(is_array($file))
 		{
 			$files = $file;
 		}
@@ -58,7 +93,7 @@ class WBMPL_file extends WBMPL_base
 			$files[] = $file;
 		}
 
-		foreach ($files as $file)
+		foreach($files as $file)
 		{
 			$file = WBMPL_path::clean($file);
 			
@@ -69,32 +104,44 @@ class WBMPL_file extends WBMPL_base
 		return true;
 	}
 
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $src
+     * @param string $dest
+     * @param string $path
+     * @return boolean
+     */
 	public static function move($src, $dest, $path = '')
 	{
-		if ($path)
+		if($path)
 		{
 			$src = WBMPL_path::clean($path . '/' . $src);
 			$dest = WBMPL_path::clean($path . '/' . $dest);
 		}
 
 		// Check src path
-		if (!is_readable($src)) return false;
-		if (!@rename($src, $dest)) return false;
+		if(!is_readable($src)) return false;
+		if(!@rename($src, $dest)) return false;
 		
 		return true;
 	}
 
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $filename
+     * @return boolean
+     */
 	public static function read($filename)
 	{
 		// Initialise variables.
 		$data = '';
 		$fh = fopen($filename, 'rb');
 		
-		if (false === $fh) return false;
+		if(false === $fh) return false;
 
 		clearstatcache();
 
-		if ($fsize = @filesize($filename))
+		if($fsize = @filesize($filename))
 		{
 			$data = fread($fh, $fsize);
 			
@@ -108,6 +155,12 @@ class WBMPL_file extends WBMPL_base
 		}
 	}
     
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $file
+     * @param string $buffer
+     * @return string
+     */
 	public static function write($file, &$buffer)
 	{
 		@set_time_limit(ini_get('max_execution_time'));
@@ -124,6 +177,12 @@ class WBMPL_file extends WBMPL_base
 		return $ret;
 	}
     
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $src
+     * @param string $dest
+     * @return boolean
+     */
 	public static function upload($src, $dest)
 	{
 		// Ensure that the path is valid and clean
@@ -145,12 +204,22 @@ class WBMPL_file extends WBMPL_base
 
 		return $ret;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $file
+     * @return string
+     */
 	public static function exists($file)
 	{
 		return is_file(WBMPL_path::clean($file));
 	}
 
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $file
+     * @return string
+     */
 	public static function getName($file)
 	{
 		// Convert back slashes to forward slashes
@@ -168,13 +237,29 @@ class WBMPL_file extends WBMPL_base
 	}
 }
 
+/**
+ * Webilia MPL Folder class.
+ * @author Webilia <info@webilia.com>
+ */
 class WBMPL_folder extends WBMPL_base
 {
+    /**
+     * Constructor method
+     * @author Webilia <info@webilia.com>
+     */
     public function __construct()
     {
         parent::__construct();
     }
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $src
+     * @param string $dest
+     * @param string $path
+     * @param boolean $force
+     * @return boolean
+     */
 	public static function copy($src, $dest, $path = '', $force = false)
 	{
 		@set_time_limit(ini_get('max_execution_time'));
@@ -228,8 +313,15 @@ class WBMPL_folder extends WBMPL_base
 		
 		return true;
 	}
-
-	/** Create a folder -- and all necessary parent folders. **/
+    
+    /**
+     * Create a folder -- and all necessary parent folders.
+     * @author Webilia <info@webilia.com>
+     * @staticvar int $nested
+     * @param string $path
+     * @param int $mode
+     * @return boolean
+     */
 	public static function create($path = '', $mode = 0755)
 	{
 		// Initialise variables.
@@ -311,7 +403,12 @@ class WBMPL_folder extends WBMPL_base
 		
 		return $ret;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @return boolean
+     */
 	public static function delete($path)
 	{
 		@set_time_limit(ini_get('max_execution_time'));
@@ -371,7 +468,14 @@ class WBMPL_folder extends WBMPL_base
 		
 		return $ret;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $src
+     * @param string $dest
+     * @param string $path
+     * @return boolean
+     */
 	public static function move($src, $dest, $path = '')
 	{
 		if ($path)
@@ -390,12 +494,27 @@ class WBMPL_folder extends WBMPL_base
 		
 		return true;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @return string
+     */
 	public static function exists($path)
 	{
 		return is_dir(WBMPL_path::clean($path));
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @param string $filter
+     * @param boolean $recurse
+     * @param boolean $full
+     * @param array $exclude
+     * @param array $excludefilter
+     * @return boolean
+     */
 	public static function files($path, $filter = '.', $recurse = false, $full = false, $exclude = array('.svn', 'CVS', '.DS_Store', '__MACOSX'), $excludefilter = array('^\..*', '.*~'))
 	{
 		// Check to make sure the path valid and clean
@@ -424,7 +543,17 @@ class WBMPL_folder extends WBMPL_base
 		asort($arr);
 		return array_values($arr);
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @param string $filter
+     * @param boolean $recurse
+     * @param boolean $full
+     * @param array $exclude
+     * @param array $excludefilter
+     * @return boolean
+     */
 	public static function folders($path, $filter = '.', $recurse = false, $full = false, $exclude = array('.svn', 'CVS', '.DS_Store', '__MACOSX'), $excludefilter = array('^\..*'))
 	{
 		// Check to make sure the path valid and clean
@@ -453,7 +582,18 @@ class WBMPL_folder extends WBMPL_base
 		asort($arr);
 		return array_values($arr);
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @param string $filter
+     * @param boolean $recurse
+     * @param boolean $full
+     * @param array $exclude
+     * @param array $excludefilter_string
+     * @param boolean $findfiles
+     * @return array
+     */
 	protected static function _items($path, $filter, $recurse, $full, $exclude, $excludefilter_string, $findfiles)
 	{
 		@set_time_limit(ini_get('max_execution_time'));
@@ -512,7 +652,12 @@ class WBMPL_folder extends WBMPL_base
 		closedir($handle);
 		return $arr;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @return string
+     */
 	public static function makeSafe($path)
 	{
 		$regex = array('#[^A-Za-z0-9:_\\\/-]#');
@@ -520,13 +665,26 @@ class WBMPL_folder extends WBMPL_base
 	}
 }
 
+/**
+ * Webilia MPL Path class.
+ * @author Webilia <info@webilia.com>
+ */
 class WBMPL_path extends WBMPL_base
 {
+    /**
+     * Constructor method
+     * @author Webilia <info@webilia.com>
+     */
     public function __construct()
     {
         parent::__construct();
     }
     
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @return boolean
+     */
 	public static function canChmod($path)
 	{
 		$perms = fileperms($path);
@@ -541,7 +699,14 @@ class WBMPL_path extends WBMPL_base
 
 		return false;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @param string $filemode
+     * @param string $foldermode
+     * @return boolean
+     */
 	public static function setPermissions($path, $filemode = '0644', $foldermode = '0755')
 	{
 		// Initialise return value
@@ -595,7 +760,12 @@ class WBMPL_path extends WBMPL_base
 
 		return $ret;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @return string
+     */
 	public static function getPermissions($path)
 	{
 		$path = WBMPL_path::clean($path);
@@ -619,13 +789,25 @@ class WBMPL_path extends WBMPL_base
 
 		return $parsed_mode;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @param string $ds
+     * @return string
+     */
 	public static function check($path, $ds = DIRECTORY_SEPARATOR)
 	{
 		$path = WBMPL_path::clean($path);
 		return $path;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param string $path
+     * @param string $ds
+     * @return string
+     */
 	public static function clean($path, $ds = DIRECTORY_SEPARATOR)
 	{
 		$path = trim($path);
@@ -642,7 +824,13 @@ class WBMPL_path extends WBMPL_base
 
 		return $path;
 	}
-
+    
+    /**
+     * @author Webilia <info@webilia.com>
+     * @param array $paths
+     * @param string $file
+     * @return boolean
+     */
 	public static function find($paths, $file)
 	{
 		settype($paths, 'array'); //force to array

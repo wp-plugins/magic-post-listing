@@ -52,7 +52,7 @@ $layout_item = isset($instance['layout_item']) ? $instance['layout_item'] : 3;
                     </div>
                     <?php endif; ?>
                 </div>
-            </div>    	
+            </div>
         </li>
         <?php endforeach; ?>
     </ul>

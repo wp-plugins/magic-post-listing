@@ -2,12 +2,19 @@
 /** no direct access **/
 defined('_WBMPLEXEC_') or die();
 
-wp_enqueue_script('light-slider', $this->main->URL('WBMPL').'app/widgets/MPL/assets/light-slider/js/jquery.light-slider.min.js');
-wp_enqueue_style('light-slider', $this->main->URL('WBMPL').'app/widgets/MPL/assets/light-slider/css/light-slider.css');
+// Include light-slider CSS file
+wp_enqueue_style('mpl-light-slider-css', $this->main->URL('WBMPL').'app/widgets/MPL/assets/light-slider/css/light-slider.css');
 
+// Include owl JavaScript file
+wp_enqueue_script('mpl-light-slider-js', $this->main->URL('WBMPL').'app/widgets/MPL/assets/light-slider/js/jquery.light-slider.min.js');
+
+// Slider ttem count
 $item = isset($instance['layout_item']) ? $instance['layout_item'] : 3;
+
+// How many items move on each slide
 $slide_move = isset($instance['layout_slide_move']) ? $instance['layout_slide_move'] : 1;
 
+// Generating javascript code of the widget
 $javascript = '<script type="text/javascript">
 jQuery(document).ready(function()
 {
@@ -45,4 +52,5 @@ jQuery(document).ready(function()
 });
 </script>';
 
+// Include javascript code into the footer
 $this->factory->params('footer', $javascript);
