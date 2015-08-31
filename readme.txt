@@ -1,10 +1,10 @@
 === Magic Post Listing ===
 Contributors: webilia
-Donate link: http://webilia.com/
+Donate link: http://webilia.com/api/mpl/redirect.php?action=upgrade
 Tags: post, widget, content slider, slider, wp slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts, post list
 Requires at least: 3.0.1
 Tested up to: 4.3
-Stable tag: 1.8
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,17 @@ Best plugin for creating content sliders and image sliders. MPL supports multipl
 
 Using Magic Post Listing (MPL) you can simply create content sliders for your website. MPL has some advanced options for filtering posts or pages.
 Magic Post Listing has ability to show thumbnails of posts/pages so you can simply create advanced image sliders and link the images to post/page URLs.
+
+> <strong>MPL PRO released!</strong><br />
+> We're glad to announce, the premium version of MPL finally released with plenty advanced options. Please check [MPL PRO demo website](http://webilia.com/api/mpl/redirect.php?action=demo) and [MPL PRO product page](http://webilia.com/api/mpl/redirect.php?action=upgrade).
+
+> **MPL PRO Features**
+
+*   Animate Layout
+*   Caption Layout
+*   Ticker Layout
+*   Shortcode support and automatic shortcode generator
+*   PHP code support and automatic PHP code generator
 
 **Post Types**
 
@@ -58,6 +69,10 @@ Yes of course, MPL supports multiple instance widgets.
 7. Widget Output (Simple)
 
 == Changelog ==
+
+= 2.0 =
+* Released [MPL PRO](http://webilia.com/api/mpl/redirect.php?action=upgrade).
+* Fixed some style issues.
 
 = 1.8 =
 * Added some styles for default layout.

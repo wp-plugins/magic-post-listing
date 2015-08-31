@@ -116,8 +116,8 @@ class WBMPL_main extends WBMPL_base
     public function pro_messages($type = 'upgrade')
     {
         $message = '';
-        if($type == 'upgrade') $message = '<p class="wbmpl_upgrade_message">'.__('This feature is included in Magic Post Listing (MPL) PRO.', WBMPL_TEXTDOMAIN).'</p>';
-        elseif($type == 'more_layouts') $message = '<p class="wbmpl_more_layouts_message">'.sprintf(__('By upgrading to %s you can use more layouts. Click %s to see demos.', WBMPL_TEXTDOMAIN), '<a href="http://webilia.com/plugins/MPL/" target="_blank">'.__('MPL PRO', WBMPL_TEXTDOMAIN).'</a>', '<a href="http://webilia.com/plugins/MPL/" target="_blank">'.__('here', WBMPL_TEXTDOMAIN).'</a>').'</p>';
+        if($type == 'upgrade') $message = '<p class="wbmpl_upgrade_message">'.sprintf(__('This feature is included in %s', WBMPL_TEXTDOMAIN), '<a href="http://webilia.com/api/mpl/redirect.php?action=upgrade" target="_blank">'.__('Magic Post Listing (MPL) PRO.', WBMPL_TEXTDOMAIN).'</a>').'</p>';
+        elseif($type == 'more_layouts') $message = '<p class="wbmpl_upgrade_message">'.sprintf(__('By upgrading to %s you can use more layouts. Click %s to see demos.', WBMPL_TEXTDOMAIN), '<a href="http://webilia.com/api/mpl/redirect.php?action=upgrade" target="_blank">'.__('MPL PRO', WBMPL_TEXTDOMAIN).'</a>', '<a href="http://webilia.com/api/mpl/redirect.php?action=demo" target="_blank">'.__('here', WBMPL_TEXTDOMAIN).'</a>').'</p>';
         
         return $message;
     }
@@ -158,7 +158,7 @@ class WBMPL_main extends WBMPL_base
         . '<span>'.sprintf(__('Extend basic plugin funtionality with %s, %s and %s layouts, shortcode and other great features.', WBMPL_TEXTDOMAIN), '<strong>'.__('Caption', WBMPL_TEXTDOMAIN).'</strong>', '<strong>'.__('Ticker', WBMPL_TEXTDOMAIN).'</strong>', '<strong>'.__('Animate', WBMPL_TEXTDOMAIN).'</strong>').'</span>'
         . '</div>'
         . '<div class="wbmpl_upgrade_button">'
-        . '<a href="http://webilia.com/plugins/magic-post-listing/upgrade/" target="_blank">'.__('Learn More', WBMPL_TEXTDOMAIN).'</a>'
+        . '<a href="http://webilia.com/api/mpl/redirect.php?action=upgrade" target="_blank">'.__('Learn More', WBMPL_TEXTDOMAIN).'</a>'
         . '</div>'
         . '</div>'
         . '</div>';

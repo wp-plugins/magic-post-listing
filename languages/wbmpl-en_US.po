@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: magic-post-listing\n"
-"POT-Creation-Date: 2015-08-24 17:24+0330\n"
-"PO-Revision-Date: 2015-08-24 17:25+0330\n"
+"POT-Creation-Date: 2015-08-31 17:53+0330\n"
+"PO-Revision-Date: 2015-08-31 17:53+0330\n"
 "Last-Translator: Howard <howard@realtyna.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,12 @@ msgstr ""
 "\\magic-post-listing\n"
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:119
-msgid "This feature is included in Magic Post Listing (MPL) PRO."
+#, php-format
+msgid "This feature is included in %s"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:119
+msgid "Magic Post Listing (MPL) PRO."
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:120
@@ -458,7 +463,7 @@ msgstr ""
 msgid "Layout Options"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:393
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:394
 msgid "Widget Layout"
 msgstr ""
 
@@ -466,15 +471,15 @@ msgstr ""
 msgid "Shortcode and PHP code"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:415
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:416
 msgid "Save to see updated Shortcode and PHP code."
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:417
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:418
 msgid "Shortcode"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:421
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/form.php:422
 msgid "PHP code"
 msgstr ""
 

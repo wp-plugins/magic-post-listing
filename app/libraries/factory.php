@@ -47,9 +47,20 @@ class WBMPL_factory extends WBMPL_base
         // Show upgrade notice
         elseif($this->main->get_upgrade_notice_status())
         {
-            // $this->action('admin_notices', array($this->main, 'upgrade_notice'), 10);
-            // $this->action('wp_ajax_wbmpl_hide_upgrade_notice', array($this->main, 'hide_upgrade_notice'), 10);
+            $this->action('admin_notices', array($this->main, 'upgrade_notice'), 10);
+            $this->action('wp_ajax_wbmpl_hide_upgrade_notice', array($this->main, 'hide_upgrade_notice'), 10);
         }
+    }
+    
+    /**
+     * Register Webilia MPL hooks such as activate, deactivate and uninstall hooks
+     * @author Webilia <info@webilia.com>
+     */
+    public function load_hooks()
+    {
+        register_activation_hook(_WBMPL_ABSPATH_.'MPL.php', array($this, 'activate'));
+		register_deactivation_hook(_WBMPL_ABSPATH_.'MPL.php', array($this, 'deactivate'));
+		register_uninstall_hook(_WBMPL_ABSPATH_.'MPL.php', array($this, 'uninstall'));
     }
     
     /**
@@ -223,4 +234,33 @@ class WBMPL_factory extends WBMPL_base
         // Add it to WordPress filters
         return add_filter($tag, $function, $priority, $accepted_args);
     }
+    
+    /**
+     * Runs on plugin activation
+     * @author Webilia <info@webilia.com>
+     */
+    public function activate()
+	{
+        // Show MPL PRO upgrade notice 3 days after installation
+        $_3days = time()+(3*86400);
+        update_option('wbmpl_hun', $_3days); # hun = Hide Upgrade Notice
+	}
+    
+    /**
+     * Runs on plugin deactivation
+     * @author Webilia <info@webilia.com>
+     */
+    public function deactivate()
+	{
+	}
+    
+    /**
+     * Runs on plugin uninstallation
+     * @author Webilia <info@webilia.com>
+     */
+    public function uninstall()
+	{
+        // Remove MPL PRO upgrade notice
+        delete_option('wbmpl_hun');
+	}
 }

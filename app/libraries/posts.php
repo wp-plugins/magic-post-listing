@@ -671,10 +671,13 @@ class WBMPL_posts extends WBMPL_base
      */
     public function close_html_tags($html)
 	{
-        if(!trim($html)) return $html;
+        if(trim($html) == '') return $html;
         
         // Convert encoding to UTF-8
         if(function_exists('mb_convert_encoding')) $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8');
+        
+        // There is no HTML tag on the text
+        if(strip_tags($html) == $html) return $html;
         
 		@$doc = new DOMDocument();
 		@$doc->loadHTML($html);

@@ -18,7 +18,7 @@ class WBMPL
         if(!defined('WBMPL_TEXTDOMAIN')) define('WBMPL_TEXTDOMAIN', 'wbmpl');
         
         /** MPL Version **/
-        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '1.8');
+        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '2.0');
     }
     
     private function __clone()
@@ -63,6 +63,9 @@ class WBMPL
         
         // Registering MPL filter methods
         $factory->load_filters();
+        
+        // Registering MPL hooks such as activate, deactivate and uninstall hooks
+        $factory->load_hooks();
         
         // Register MPL Widget
         $factory->action('widgets_init', array($factory, 'load_widgets'));

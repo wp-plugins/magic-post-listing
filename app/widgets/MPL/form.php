@@ -389,6 +389,7 @@ jQuery(document).ready(function()
     </div>
     <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('layout', false, '<?php echo $this->number; ?>');"><?php echo __('Layout Options', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_layout" style="display: none;">
+        <?php if(!$this->main->getPRO()) echo $this->main->pro_messages('more_layouts'); ?>
         <fieldset class="wbmpl_field_wrapper">
             <legend><?php echo __('Widget Layout', WBMPL_TEXTDOMAIN); ?></legend>
             <p>
@@ -409,9 +410,9 @@ jQuery(document).ready(function()
             </div>
         </fieldset>
     </div>
-    <?php if($this->main->getPRO()): ?>
     <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('code', false, '<?php echo $this->number; ?>');"><?php echo __('Shortcode and PHP code', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_code" style="display: none;">
+        <?php if($this->main->getPRO()): ?>
         <p class="wbmpl_notice_message"><?php echo __('Save to see updated Shortcode and PHP code.', WBMPL_TEXTDOMAIN); ?></p>
         <p>
             <label for="<?php echo $this->get_field_id('shortcode'); ?>"><?php echo __('Shortcode', WBMPL_TEXTDOMAIN); ?></label>
@@ -421,6 +422,7 @@ jQuery(document).ready(function()
             <label for="<?php echo $this->get_field_id('phpcode'); ?>"><?php echo __('PHP code', WBMPL_TEXTDOMAIN); ?></label>
             <textarea class="widefat wbmpl_phpcode" id="<?php echo $this->get_field_id('phpcode'); ?>" name="<?php echo $this->get_field_name('phpcode'); ?>"><?php echo isset($instance['phpcode']) ? $instance['phpcode'] : ''; ?></textarea>
         </p>
+        <?php else: echo $this->main->pro_messages('upgrade'); ?>
+        <?php endif; ?>
     </div>
-    <?php endif; ?>
 </div>
