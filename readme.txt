@@ -19,11 +19,11 @@ Magic Post Listing has ability to show thumbnails of posts/pages so you can simp
 > We're glad to announce, the premium version of MPL finally released with plenty advanced options. Please check [MPL PRO demo website](http://webilia.com/api/mpl/redirect.php?action=demo) and [MPL PRO product page](http://webilia.com/api/mpl/redirect.php?action=upgrade).
 
 > **MPL PRO Features**
-*   Animate Layout
-*   Caption Layout
-*   Ticker Layout
-*   Shortcode support and automatic shortcode generator
-*   PHP code support and automatic PHP code generator
+> *   Animate Layout
+> *   Caption Layout
+> *   Ticker Layout
+> *   Shortcode support and automatic shortcode generator
+> *   PHP code support and automatic PHP code generator
 
 **Post Types**
 
