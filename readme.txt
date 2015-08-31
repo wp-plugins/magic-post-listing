@@ -35,6 +35,9 @@ Magic Post Listing has a great feature for specifying layout of slider. Using la
 
 *   Default layout shows filtered posts/pages using a simple structure. This layout is useful for using as recent posts widget or using in a theme with customized style. It has list/grid option as well.
 *   Light-slider layout shows filtered posts/pages in a slider using a jQuery plugin. There are some useful options for this layout in MPL so you can configure it in a way that you like easily.
+*   Animate layout shows one of filtered posts/pages at once and navigate to next post using a nice animation. This layout included in MPL PRO.
+*   Caption layout shows all of filtered posts/pages at once. By hovering mouse on each post, post title and/or post content will show using a caption style. This layout is part of MPL PRO.
+*   Ticker layout shows all filtered posts/pages using a breaking news style one by one. This layout is included in MPL PRO as well.
 
 **Developers**
 
