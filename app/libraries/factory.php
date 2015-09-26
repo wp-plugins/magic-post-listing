@@ -26,6 +26,9 @@ class WBMPL_factory extends WBMPL_base
         // MPL File library
         $this->file = $this->getFile();
         
+        // MPL Folder library
+        $this->folder = $this->getFolder();
+        
         // Import MPL Controller Class
         $this->import('app.controller');
     }
@@ -38,6 +41,16 @@ class WBMPL_factory extends WBMPL_base
     {
         // Register MPL function to be called in WordPress footer hook
         $this->action('wp_footer', array($this, 'load_footer'), 9999);
+        
+        // Call MPL Layout Actions
+		$mpl_layouts = $this->folder->files(_WBMPL_ABSPATH_ .DS. 'app' .DS. 'widgets' .DS. 'MPL' .DS. 'tmpl', '.php$', false, false);
+        foreach($mpl_layouts as $mpl_layout)
+        {
+            $mpl_layout = strtolower(trim($mpl_layout, '.php '));
+            $action_file = _WBMPL_ABSPATH_ .DS. 'app' .DS. 'widgets' .DS. 'MPL' .DS. 'assets' .DS. $mpl_layout .DS. 'actions.php';
+            
+            if($this->file->exists($action_file)) include_once $action_file;
+        }
         
         // MPL PRO library
         $PRO = $this->main->getPRO();
@@ -60,7 +73,7 @@ class WBMPL_factory extends WBMPL_base
     {
         register_activation_hook(_WBMPL_ABSPATH_.'MPL.php', array($this, 'activate'));
 		register_deactivation_hook(_WBMPL_ABSPATH_.'MPL.php', array($this, 'deactivate'));
-		register_uninstall_hook(_WBMPL_ABSPATH_.'MPL.php', array($this, 'uninstall'));
+		register_uninstall_hook(_WBMPL_ABSPATH_.'MPL.php', array('WBMPL_factory', 'uninstall'));
     }
     
     /**
@@ -69,6 +82,14 @@ class WBMPL_factory extends WBMPL_base
      */
     public function load_filters()
     {
+        // MPL PRO library
+        $PRO = $this->main->getPRO();
+        
+        if(!$PRO)
+        {
+            // Load MPL Plugin links such as upgrade to PRO etc.
+            $this->filter('plugin_row_meta', array($this, 'load_plugin_links'), 10, 2);
+        }
     }
     
     /**
@@ -77,6 +98,21 @@ class WBMPL_factory extends WBMPL_base
      */
     public function load_menus()
     {
+    }
+    
+    /**
+     * Inserting MPL plugin links such as upgrade to MPL PRO etc.
+     * @author Webilia <info@webilia.com>
+     */
+    public function load_plugin_links($links, $file)
+    {
+        if(strpos($file, _WBMPL_BASENAME_) !== false)
+        {
+            $links[] = '<strong class="wbmpl-upgrade"><a href="http://webilia.com/api/mpl/redirect.php?action=upgrade" target="_blank">'.__('Upgrade to MPL PRO', WBMPL_TEXTDOMAIN).'</a></strong>';
+            $links[] = '<a href="http://webilia.com/api/mpl/redirect.php?action=demo" target="_blank">'.__('MPL PRO Demo website', WBMPL_TEXTDOMAIN).'</a>';
+        }
+        
+        return $links;
     }
     
     /**
@@ -99,6 +135,10 @@ class WBMPL_factory extends WBMPL_base
         
         // Include MPL backend CSS file
         wp_enqueue_style('wbmpl-backend-style', $this->main->asset('css/backend.css'));
+        
+        // Include Font Awesome CSS file
+        $fa_include = apply_filters('WBMPL_MPL_fa_include', true);
+        if($fa_include) wp_enqueue_style('font-awesome', $this->main->asset('packages/font-awesome/css/font-awesome.min.css'));
     }
     
     /**
@@ -115,6 +155,10 @@ class WBMPL_factory extends WBMPL_base
         
         // Include MPL frontend CSS file
         wp_enqueue_style('wbmpl-frontend-style', $this->main->asset('css/frontend.css'));
+        
+        // Include Font Awesome CSS file
+        $fa_include = apply_filters('WBMPL_MPL_fa_include', true);
+        if($fa_include) wp_enqueue_style('font-awesome', $this->main->asset('packages/font-awesome/css/font-awesome.min.css'));
     }
     
     /**
@@ -258,7 +302,7 @@ class WBMPL_factory extends WBMPL_base
      * Runs on plugin uninstallation
      * @author Webilia <info@webilia.com>
      */
-    public function uninstall()
+    public static function uninstall()
 	{
         // Remove MPL PRO upgrade notice
         delete_option('wbmpl_hun');

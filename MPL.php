@@ -4,7 +4,7 @@
 	Plugin URI: http://webilia.com
 	Description: An awesome plugin for listing the posts and creating posts/pages sliders
 	Author: Webilia Team
-	Version: 2.0
+	Version: 2.1
 	Author URI: http://webilia.com
 **/
 

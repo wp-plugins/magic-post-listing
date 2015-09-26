@@ -9,6 +9,12 @@ defined('_WBMPLEXEC_') or die();
 class WBMPL
 {
     /**
+     * Instance of this class. This is a singleton class
+     * @var object
+     */
+    private static $instance = NULL;
+    
+    /**
      * Constructor method
      * @author Webilia <info@webilia.com>
      */
@@ -18,7 +24,12 @@ class WBMPL
         if(!defined('WBMPL_TEXTDOMAIN')) define('WBMPL_TEXTDOMAIN', 'wbmpl');
         
         /** MPL Version **/
-        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '2.0');
+        if(!defined('WBMPL_VERSION')) define('WBMPL_VERSION', '2.1');
+        
+        /** Pagination Types **/
+        if(!defined('WBMPL_PG_NO')) define('WBMPL_PG_NO', 0);
+        if(!defined('WBMPL_PG_LOAD_MORE')) define('WBMPL_PG_LOAD_MORE', 1);
+        if(!defined('WBMPL_PG_INFINITE_SCROLL')) define('WBMPL_PG_INFINITE_SCROLL', 2);
     }
     
     private function __clone()
@@ -32,15 +43,15 @@ class WBMPL
     /**
      * Getting instance. This Class is a singleton class
      * @author Webilia <info@webilia.com>
-     * @staticvar object $instance
      * @return \static
      */
     public static function instance()
 	{
-        static $instance = null;
-        if(null === $instance) $instance = new static();
+        // Get an instance of Class
+        if(!self::$instance) self::$instance = new self();
         
-        return $instance;
+        // Return the instance
+        return self::$instance;
 	}
     
     /**
@@ -145,9 +156,9 @@ class WBMPL
                 $overridden = true;
                 $path = $theme_path;
             }
-
+            
             // If the theme is a child theme then search the file in child theme
-            if(is_child_theme())
+            if(get_template_directory() != get_stylesheet_directory())
             {
                 // Child theme overriden file
                 $child_theme_path = get_stylesheet_directory() .DS. 'webilia' .DS. _WBMPL_BASENAME_ .DS. $file;

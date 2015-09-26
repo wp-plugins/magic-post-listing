@@ -1,61 +1,35 @@
 <?php
 /** no direct access **/
 defined('_WBMPLEXEC_') or die();
+
+// Get layout path
+$render_path = $this->main->import('app.widgets.MPL.tmpl.render.'.$layout_name, true, true);
+
+ob_start();
+include $render_path;
+$items_html = ob_get_clean();
+
+if(isset($instance['mpl_return_items']) and trim($instance['mpl_return_items']))
+{
+    echo json_encode(array('html'=>$items_html, 'raw'=>$rendered));
+    return;
+}
+
+// Pagination Type
+$pagination = (isset($instance['layout_pagination']) and trim($instance['layout_pagination'])) ? $instance['layout_pagination'] : WBMPL_PG_NO;
 ?>
 <div <?php echo $this->posts->generate_container_classes($this->widget_id, $instance); ?>>
     <?php if(trim($widget_title) != '') echo '<div class="wbmpl_main_title">'.$before_title.$widget_title.$after_title.'</div>'; ?>
     <?php if(count($rendered)): ?>
     <ul class="<?php echo ((isset($instance['layout_display']) and $instance['layout_display'] == '2') ? 'wbmpl_grid wbmpl_grid'.$instance['layout_grid_size'] : 'wbmpl_list'); ?>">
-        <?php foreach($rendered as $post): ?>
-        <li id="wbmpl_list_container<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>" class="wbmpl_list_container">
-            <?php if($instance['thumb_show']): ?>
-            <div class="wbmpl_list_thumbnail" id="wbmpl_list_thumbnail<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                <?php echo $this->posts->render_thumbnail($post['rendered']['thumbnail'], $instance, $post); ?>
-            </div>
-            <?php endif; ?>
-            <div class="wbmpl_list_right" id="wbmpl_list_right<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-
-                <?php if($instance['display_show_title']): ?>
-                <div class="wbmpl_list_title" id="wbmpl_list_title<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_title($post['post_title'], $instance, $post); ?>
-                </div>
-                <?php endif; ?>
-                
-                <?php if($instance['display_show_content']): ?>
-                <div class="wbmpl_list_content" id="wbmpl_list_content<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_content($post['post_content'], $instance, $post); ?>
-                </div>
-                <?php endif; ?>
-                
-            </div>
-            <div class="wbmpl_list_details" id="wbmpl_list_details<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                <?php if($instance['display_show_author']): ?>
-                <div class="wbmpl_list_author" id="wbmpl_list_author<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_author($post['post_author'], $instance); ?>
-                </div>
-                <?php endif; ?>
-
-                <?php if($instance['display_show_date']): ?>
-                <div class="wbmpl_list_date" id="wbmpl_list_date<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_date($post['ID'], $instance); ?>
-                </div>
-                <?php endif; ?>
-
-                <?php if($instance['display_show_category'] and $instance['post_type'] == 'post'): ?>
-                <div class="wbmpl_list_categories" id="wbmpl_list_categories<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_categories($post['ID'], $instance); ?>
-                </div>
-                <?php endif; ?>
-
-                <?php if($instance['display_show_tags'] and $instance['post_type'] == 'post'): ?>
-                <div class="wbmpl_list_tags" id="wbmpl_list_tags<?php echo $this->widget_id; ?>_<?php echo $post['ID']; ?>">
-                    <?php echo $this->posts->render_tags($post['ID'], $instance); ?>
-                </div>
-                <?php endif; ?>
-            </div>
-        </li>
-        <?php endforeach; ?>
+        <?php echo $items_html; ?>
     </ul>
+    <?php if($pagination == WBMPL_PG_LOAD_MORE and $mplpage < $total_pages and $this->main->getPRO()): ?>
+    <div class="wbmpl_pagination">
+        <button><i class="fa fa-plus"></i><?php echo __('Load More', WBMPL_TEXTDOMAIN); ?></button>
+        <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
+    </div>
+    <?php endif; ?>
     <?php else: ?>
     <div class="wbmpl_no_posts"><?php echo $instance['no_post_default_text']; ?></div>
     <?php endif; ?>

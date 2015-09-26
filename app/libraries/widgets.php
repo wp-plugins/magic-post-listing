@@ -152,4 +152,14 @@ class WBMPL_widgets extends WP_Widget
         
         return $html;
     }
+    
+    /**
+     * Check if MPL rans as a widget
+     * @author Webilia <info@webilia.com>
+     * @return boolean
+     */
+    public function isWidget()
+    {
+        return true;
+    }
 }

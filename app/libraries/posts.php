@@ -44,6 +44,7 @@ class WBMPL_posts extends WBMPL_base
         // Search only on published posts
 		$condition1 = "`post_status`='publish'";
         $condition2 = "";
+        $join = "";
 		
 		// Include post type to query
 		if(trim($params['post_type']) != '') $condition1 .= " AND `post_type`='".$params['post_type']."'";
@@ -107,7 +108,7 @@ class WBMPL_posts extends WBMPL_base
             $post_type = $params['post_type'];
             foreach($params as $key=>$value)
             {
-                if(!is_array($value) and (trim($value) == '' or $value == '-1')) continue;
+                if(is_string($value) and (trim($value) == '' or trim($value == '-1'))) continue;
                 if(strpos($key, 'cpost_'.$post_type.'_terms_') === false) continue;
                 
                 $condition1 .= " AND `ID` IN (SELECT `object_id` FROM `#__term_relationships` WHERE `term_taxonomy_id` IN (".$this->get_taxonomy_ids($value)."))";
@@ -120,13 +121,20 @@ class WBMPL_posts extends WBMPL_base
 			if(isset($params['cpost_'.$post_type.'_exclude_post_ids']) and trim($params['cpost_'.$post_type.'_exclude_post_ids']) != '') $condition1 .= " AND `ID` NOT IN (".$params['cpost_'.$post_type.'_exclude_post_ids'].")";
         }
 		
+        // Skip post if no image found
+        if(isset($params['thumb_skip']) and $params['thumb_skip'])
+        {
+            $condition1 .= " AND `#__postmeta`.meta_key='_thumbnail_id'";
+            $join .= "LEFT JOIN `#__postmeta` ON `#__posts`.ID=`#__postmeta`.post_id";
+        }
+            
         $condition2 = trim($condition2, 'OR ');
         
 		// Order and Size
-		$order_limit = " ORDER BY `".($params['listing_orderby'] ? $params['listing_orderby'] : 'post_date')."` ".($params['listing_order'] ? $params['listing_order'] : 'DESC')." LIMIT ".($params['listing_size'] ? $params['listing_size'] : 10);
+		$order_limit = " ORDER BY `".($params['listing_orderby'] ? $params['listing_orderby'] : 'post_date')."` ".($params['listing_order'] ? $params['listing_order'] : 'DESC')." LIMIT ".(isset($params['listing_offset']) ? $params['listing_offset'].', ' : '').($params['listing_size'] ? $params['listing_size'] : 10);
         
         // Return the query
-		return "SELECT * FROM `#__posts` WHERE (".$condition1.") ".(trim($condition2) != '' ? " OR (".$condition2.")" : '').$order_limit;
+        return "SELECT * FROM `#__posts` ".(trim($join) ? $join : '')." WHERE (".$condition1.") ".(trim($condition2) != '' ? " OR (".$condition2.")" : '').$order_limit;
 	}
 	
     /**
@@ -183,7 +191,7 @@ class WBMPL_posts extends WBMPL_base
 		foreach($ex as $key=>$value)
 		{
 			$value = trim($value, "' ");
-			$names_str .= "'".trim($value)."',";
+			$names_str .= "'".$value."',";
 		}
 		
 		return $this->get_taxonomy_ids($this->get_term_ids(trim($names_str, ', ')));
@@ -288,9 +296,6 @@ class WBMPL_posts extends WBMPL_base
             // Get post thumbnails
             $thumbnail = $this->get_thumbnail($post_id, array($instance['thumb_width'], $instance['thumb_height']));
             
-            // Skip post if no image found
-            if($instance['thumb_show'] and isset($instance['thumb_skip']) and $instance['thumb_skip'] and !trim($thumbnail)) continue;
-            
             $rendered[$post_id] = (array) $post;
             
             // Set post thumbnail
@@ -318,7 +323,7 @@ class WBMPL_posts extends WBMPL_base
 			  'display_show_title'=>'1', 'display_link_title'=>'0', 'display_cut_title_size'=>'100', 'display_cut_title_mode'=>'1', 'display_title_html_tag'=>'',
 			  'display_show_content'=>'1', 'display_link_content'=>'0', 'display_cut_content_size'=>'300', 'display_cut_content_mode'=>'1',
 			  'display_show_author'=>'1', 'display_link_author'=>'0', 'display_author_label'=>'',
-			  'display_show_date'=>'0', 'display_date_format'=>'Default', 'display_date_label'=>'Date: ',
+			  'display_show_date'=>'0', 'display_date_format'=>'Default', 'display_date_label'=>'',
 			  'display_show_category'=>'0', 'display_category_link'=>'0', 'display_category_label'=>'', 'display_category_separator'=>'',
 			  'display_show_tags'=>'0', 'display_tags_link'=>'0', 'display_tags_label'=>'', 'display_tags_separator'=>'',
 			  'display_show_string_break'=>'1', 'display_string_break_str'=>'...', 'display_string_break_img'=>'', 'display_link_string_break'=>'1',
@@ -453,6 +458,9 @@ class WBMPL_posts extends WBMPL_base
         // Add label if enabled
         if(trim($instance['display_date_label'])) $date = __($instance['display_date_label'], WBMPL_TEXTDOMAIN).' '.$date;
         
+        // Add fa icon
+        $date = '<i class="fa fa-clock-o"></i>'.$date;
+        
         return $date;
     }
     
@@ -494,6 +502,9 @@ class WBMPL_posts extends WBMPL_base
         // Add author label if enabled
         if(trim($instance['display_author_label'])) $author = __($instance['display_author_label'], WBMPL_TEXTDOMAIN).' '.$author;
         
+        // Add fa icon
+        $author = '<i class="fa fa-user"></i>'.$author;
+        
         return $author;
     }
     
@@ -528,6 +539,9 @@ class WBMPL_posts extends WBMPL_base
         // Add category label if enabled
         if(trim($instance['display_category_label'])) $str = __($instance['display_category_label'], WBMPL_TEXTDOMAIN).$str;
         
+        // Add fa icon
+        $str = '<i class="fa fa-list"></i>'.$str;
+        
         return trim($str, $separator);
     }
     
@@ -561,6 +575,9 @@ class WBMPL_posts extends WBMPL_base
         
         // Add tags label if enabled
         if(trim($instance['display_tags_label'])) $str = __($instance['display_tags_label'], WBMPL_TEXTDOMAIN).$str;
+        
+        // Add fa icon
+        $str = '<i class="fa fa-tags"></i>'.$str;
         
         return trim($str, $separator);
     }
@@ -760,5 +777,19 @@ class WBMPL_posts extends WBMPL_base
     public function get_container_id($widget_id)
     {
         return 'wbmpl_main_container'.$widget_id;
+    }
+    
+    /**
+     * Returns total posts of a query
+     * @author Webilia <info@webilia.com>
+     * @param string $query
+     * @return int
+     */
+    public function get_total_posts($query)
+    {
+        $query = substr($query, 0, strpos($query, 'LIMIT'));
+        $query = str_replace('SELECT *', 'SELECT COUNT(*) AS count', $query);
+        
+        return $this->db->select($query, 'loadResult');
     }
 }

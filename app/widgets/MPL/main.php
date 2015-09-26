@@ -71,16 +71,7 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
         
         // Get layout name
         $layout_name = str_replace('.php', '', $instance['display_layout']);
-        
-        // Get Assets path of widget layout
-        $assets_path = $this->main->import($this->assetspath.'.'.$layout_name.'.'.$layout_name, true, true);
-        
-        // Get layout path
-        $layout_path = $this->main->import($this->tplpath.'.'.$layout_name, true, true);
-        
-        // Include asset file
-        if($this->file->exists($assets_path)) include $assets_path;
-        
+
         // Apply instance filter, You can use this filter for changing the instance before rendering the widget.
         $instance = apply_filters('WBMPL_MPL_instance_'.$layout_name, $instance);
         
@@ -91,14 +82,32 @@ class WBMPL_post_listing_widget extends WBMPL_widgets
         // Get the post type from Widget settings
 		$post_type = $instance['post_type'];
         
+        // Pagination
+        $mplpage = $this->request->getVar('mplpage'.$this->widget_id, 1);
+        $offset = ($mplpage-1)*$instance['listing_size'];
+        $instance['listing_offset'] = $offset;
+        
         // Generate query based on the widget settings
         $query = $this->posts->get_query($instance);
+        
+        // Get total posts for finding total pages
+        $total = $this->posts->get_total_posts($query);
+        $total_pages = ceil($total / $instance['listing_size']);
         
         // Get the posts from database
 		$posts = $this->db->select($query);
         
         // Render the posts based on widget settings
 		$rendered = $this->posts->render($posts, $instance);
+        
+        // Get Assets path of widget layout
+        $assets_path = $this->main->import($this->assetspath.'.'.$layout_name.'.'.$layout_name, true, true);
+        
+        // Include asset file
+        if($this->file->exists($assets_path)) include $assets_path;
+        
+        // Get layout path
+        $layout_path = $this->main->import($this->tplpath.'.'.$layout_name, true, true);
         
 		// Print before widget (defined by themes)
 		echo $before_widget;

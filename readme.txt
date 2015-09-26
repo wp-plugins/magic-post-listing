@@ -3,8 +3,8 @@ Contributors: webilia
 Donate link: http://webilia.com/api/mpl/redirect.php?action=upgrade
 Tags: post, widget, content slider, slider, wp slider, carousel, page slider, page, page carousel, horizontal carousel, light slider, post carousel, recent posts, latest posts, post list
 Requires at least: 3.0.1
-Tested up to: 4.3
-Stable tag: 2.0
+Tested up to: 4.3.1
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,12 @@ Yes of course, MPL supports multiple instance widgets.
 7. Widget Output (Simple)
 
 == Changelog ==
+
+= 2.1 =
+* Added Masonry layout to MPL PRO.
+* Added pagination option to default, caption and masonry layouts.
+* Tweak design of MPL widget form and some MPL layouts.
+* Fixed some minor issues.
 
 = 2.0 =
 * Released [MPL PRO](http://webilia.com/api/mpl/redirect.php?action=upgrade).

@@ -12,7 +12,7 @@ jQuery(document).ready(function()
 });
 </script>
 <div class="wbmpl_widget_form_container" id="wbmpl_widget_form_container<?php echo $this->number; ?>">
-	<h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('basic', false, '<?php echo $this->number; ?>');"><?php echo __('Basic Options', WBMPL_TEXTDOMAIN); ?></h4>
+	<h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('basic', false, '<?php echo $this->number; ?>');"><i class="fa fa-home"></i><?php echo __('Basic Options', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_basic">
         <fieldset class="wbmpl_field_wrapper">
             <legend><?php echo __('Widget Title', WBMPL_TEXTDOMAIN); ?></legend>
@@ -53,7 +53,7 @@ jQuery(document).ready(function()
             </select>
         </p>
     </div>
-    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('post', false, '<?php echo $this->number; ?>');"><?php echo __('Filter Options', WBMPL_TEXTDOMAIN); ?></h4>
+    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('post', false, '<?php echo $this->number; ?>');"><i class="fa fa-filter"></i><?php echo __('Filter Options', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_post" style="display: none;">
     	<p>
             <label for="<?php echo $this->get_field_id('post_authors'); ?>"><?php echo __('Author', WBMPL_TEXTDOMAIN); ?></label>
@@ -168,7 +168,7 @@ jQuery(document).ready(function()
             <input class="widefat" id="<?php echo $this->get_field_id('listing_size'); ?>" name="<?php echo $this->get_field_name('listing_size'); ?>" value="<?php echo $instance['listing_size']; ?>" type="text" />
         </p>
 	</div>
-    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('thumbnail', false, '<?php echo $this->number; ?>');"><?php echo __('Thumbnail Options', WBMPL_TEXTDOMAIN); ?></h4>
+    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('thumbnail', false, '<?php echo $this->number; ?>');"><i class="fa fa-picture-o"></i><?php echo __('Thumbnail Options', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_thumbnail" style="display: none;">
     	<fieldset class="wbmpl_field_wrapper">
             <legend><?php echo __('Thumbnails', WBMPL_TEXTDOMAIN); ?></legend>
@@ -204,7 +204,7 @@ jQuery(document).ready(function()
             </div>
         </fieldset>
     </div>
-    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('display', false, '<?php echo $this->number; ?>');"><?php echo __('Display Options', WBMPL_TEXTDOMAIN); ?></h4>
+    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('display', false, '<?php echo $this->number; ?>');"><i class="fa fa-eye"></i><?php echo __('Display Options', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_display" style="display: none;">
     	<fieldset class="wbmpl_field_wrapper">
             <legend><?php echo __('Post Title', WBMPL_TEXTDOMAIN); ?></legend>
@@ -376,7 +376,7 @@ jQuery(document).ready(function()
             </div>
         </fieldset>
     </div>
-    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('advanced', false, '<?php echo $this->number; ?>');"><?php echo __('Advanced Options', WBMPL_TEXTDOMAIN); ?></h4>
+    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('advanced', false, '<?php echo $this->number; ?>');"><i class="fa fa-gear"></i><?php echo __('Advanced Options', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_advanced" style="display: none;">
     	<p>
         	<label for="<?php echo $this->get_field_id('allowed_html_tags'); ?>"><?php echo __('Allowed HTML tags for content', WBMPL_TEXTDOMAIN); ?></label>
@@ -387,7 +387,7 @@ jQuery(document).ready(function()
             <input class="widefat" id="<?php echo $this->get_field_id('no_post_default_text'); ?>" name="<?php echo $this->get_field_name('no_post_default_text'); ?>" value="<?php echo $instance['no_post_default_text']; ?>" type="text" />
         </p>
     </div>
-    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('layout', false, '<?php echo $this->number; ?>');"><?php echo __('Layout Options', WBMPL_TEXTDOMAIN); ?></h4>
+    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('layout', false, '<?php echo $this->number; ?>');"><i class="fa fa-desktop"></i><?php echo __('Layout Options', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_layout" style="display: none;">
         <?php if(!$this->main->getPRO()) echo $this->main->pro_messages('more_layouts'); ?>
         <fieldset class="wbmpl_field_wrapper">
@@ -410,7 +410,7 @@ jQuery(document).ready(function()
             </div>
         </fieldset>
     </div>
-    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('code', false, '<?php echo $this->number; ?>');"><?php echo __('Shortcode and PHP code', WBMPL_TEXTDOMAIN); ?></h4>
+    <h4 class="wbmpl_widget_tab_header" onclick="wbmpl_slide_tabs('code', false, '<?php echo $this->number; ?>');"><i class="fa fa-code"></i><?php echo __('Shortcode and PHP code', WBMPL_TEXTDOMAIN); ?></h4>
     <div class="wbmpl_widget_tab_container wbmpl_widget_tab_code" style="display: none;">
         <?php if($this->main->getPRO()): ?>
         <p class="wbmpl_notice_message"><?php echo __('Save to see updated Shortcode and PHP code.', WBMPL_TEXTDOMAIN); ?></p>

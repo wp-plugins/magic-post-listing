@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: magic-post-listing\n"
-"POT-Creation-Date: 2015-08-31 17:53+0330\n"
-"PO-Revision-Date: 2015-08-31 17:53+0330\n"
+"POT-Creation-Date: 2015-09-26 18:57+0330\n"
+"PO-Revision-Date: 2015-09-26 18:57+0330\n"
 "Last-Translator: Howard <howard@realtyna.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,6 +14,14 @@ msgstr ""
 "post-listing\n"
 "X-Poedit-SearchPath-0: I:\\wbl\\xampp\\htdocs\\mpl\\wp-content\\plugins"
 "\\magic-post-listing\n"
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/factory.php:111
+msgid "Upgrade to MPL PRO"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/factory.php:112
+msgid "MPL PRO Demo website"
+msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:119
 #, php-format
@@ -39,7 +47,9 @@ msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:157
 #, php-format
-msgid "It's time to upgrade your %s to %s version!"
+msgid ""
+"It's time to show your support by upgrading your %s to %s version. Quality "
+"checked by Envato!"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:157
@@ -55,8 +65,8 @@ msgstr ""
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:158
 #, php-format
 msgid ""
-"Extend basic plugin funtionality with %s, %s and %s layouts, shortcode and "
-"other great features."
+"Extend basic plugin funtionality with %s, %s, %s and %s layouts, shortcode "
+"and other great features. See %s website!"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:158
@@ -71,8 +81,16 @@ msgstr ""
 msgid "Animate"
 msgstr ""
 
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:158
+msgid "Masonry"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:158
+msgid "demo"
+msgstr ""
+
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/main.php:161
-msgid "Learn More"
+msgid "Upgrade for only $17"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/libraries/widgets.php:112
@@ -484,9 +502,9 @@ msgid "PHP code"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/animate.php:6
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:14
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:14
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/animate.php:6
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:14
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:14
 msgid "Animation"
 msgstr ""
 
@@ -599,20 +617,135 @@ msgstr ""
 msgid "Scale"
 msgstr ""
 
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/caption.php:17
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:6
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:6
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:6
+msgid "Pagination"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/caption.php:21
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:10
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:8
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:8
+msgid "No Pagination"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/caption.php:22
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:11
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:9
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/tmpl/caption.php:29
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/tmpl/default.php:29
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/tmpl/masonry.php:29
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:9
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/tmpl/masonry.php:29
+msgid "Load More"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:16
 msgid "Display"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:8
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:18
 msgid "List"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:9
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:19
 msgid "Grid"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:13
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/default.php:23
 msgid "Grid Size"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:6
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:6
+msgid "Categorize Based On"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:16
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:16
+msgid "Enabled"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:17
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:17
+msgid "Disabled"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:21
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:21
+msgid "Duration"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:25
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:25
+msgid "Easing"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:27
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:27
+msgid "Ease"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:28
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:28
+msgid "easeInSine"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:29
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:29
+msgid "easeOutSine"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:30
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:30
+msgid "easeInOutSine"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:31
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:31
+msgid "easeInQuad"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:32
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:32
+msgid "easeOutQuad"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:33
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:33
+msgid "easeInOutQuad"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:34
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:34
+msgid "easeInCubic"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:35
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:35
+msgid "easeOutCubic"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:36
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:36
+msgid "easeInOutCubic"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:37
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:37
+msgid "easeInBack"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:38
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:38
+msgid "easeOutBack"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/filter.php:39
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/filter.php:39
+msgid "easeInOutBack"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/light-slider.php:6
@@ -653,94 +786,19 @@ msgstr ""
 msgid "Vertical Height"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:6
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:6
-msgid "Categorize Based On"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:16
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:16
-msgid "Enabled"
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:13
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:14
+msgid "Column Width"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:17
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:17
-msgid "Disabled"
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:18
+msgid "Horizontal Space"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:21
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:21
-msgid "Duration"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:25
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:25
-msgid "Easing"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:27
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:27
-msgid "Ease"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:28
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:28
-msgid "easeInSine"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:29
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:29
-msgid "easeOutSine"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:30
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:30
-msgid "easeInOutSine"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:31
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:31
-msgid "easeInQuad"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:32
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:32
-msgid "easeOutQuad"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:33
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:33
-msgid "easeInOutQuad"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:34
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:34
-msgid "easeInCubic"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:35
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:35
-msgid "easeOutCubic"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:36
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:36
-msgid "easeInOutCubic"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:37
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:37
-msgid "easeInBack"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:38
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:38
-msgid "easeOutBack"
-msgstr ""
-
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/masonry.php:39
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:39
-msgid "easeInOutBack"
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:22
+msgid "Vertical Space"
 msgstr ""
 
 #: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/forms/ticker.php:7
@@ -803,7 +861,11 @@ msgstr ""
 msgid "Whether to fade between ticker items or not"
 msgstr ""
 
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/tmpl/masonry.php:11
-#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/tmpl/masonry.php:11
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/app/widgets/MPL/tmpl/filter.php:11
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/tmpl/filter.php:11
 msgid "All"
+msgstr ""
+
+#: I:\wbl\xampp\htdocs\mpl\wp-content\plugins\magic-post-listing/_PRO/app/widgets/MPL/forms/masonry.php:10
+msgid "Infinite Scroll"
 msgstr ""
