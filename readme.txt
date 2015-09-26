@@ -22,6 +22,7 @@ Magic Post Listing has ability to show thumbnails of posts/pages so you can simp
 - Animate Layout<br />
 - Caption Layout<br />
 - Ticker Layout<br />
+- Masonry Layout<br />
 - Shortcode support and automatic shortcode generator<br />
 - PHP code support and automatic PHP code generator<br />
 
@@ -38,6 +39,7 @@ Magic Post Listing has a great feature for specifying layout of slider. Using la
 *   Animate layout shows one of filtered posts/pages at once and navigate to next post using a nice animation. This layout included in MPL PRO.
 *   Caption layout shows all of filtered posts/pages at once. By hovering mouse on each post, post title and/or post content will show using a caption style. This layout is part of MPL PRO.
 *   Ticker layout shows all filtered posts/pages using a breaking news style one by one. This layout is included in MPL PRO as well.
+*   Masonry layout shows all filtered posts/pages using a masonry style. This layout supports pagination as well.
 
 **Developers**
 
